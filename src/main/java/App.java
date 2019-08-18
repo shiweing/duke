@@ -30,7 +30,6 @@ public class App {
                 break;
             default:
                 addTask(action + scanner.nextLine());
-                //scanner.next();
         }
     }
     // List
@@ -48,7 +47,6 @@ public class App {
     }
     // Add
     private void addTask(String taskDesc) {
-        System.out.println(taskDesc);
         Task task = new Task(taskDesc);
         list.put(list.size() + 1, task);
         System.out.println("added: " + taskDesc);
