@@ -3,7 +3,7 @@ public class Task {
     private boolean isDone;
 
     Task(String desc) {
-        this.desc = desc;
+        this.desc = desc.strip();
         this.isDone = false;
     }
 
@@ -14,7 +14,7 @@ public class Task {
     @Override
     public String toString() {
         return String.format("[%s] %s",
-                this.isDone ? "\u2713" : "\u274C",
+                this.isDone ? "\u2713" : "\u2717",
                 this.desc);
     }
 }

@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -28,6 +29,15 @@ public class App {
             case "done":
                 doneTask(scanner.nextInt());
                 break;
+            case "todo":
+                addTodo(scanner.nextLine());
+                break;
+            case "deadline":
+                addDeadline(scanner.nextLine());
+                break;
+            case "event":
+                addEvent(scanner.nextLine());
+                break;
             default:
                 addTask(action + scanner.nextLine());
         }
@@ -50,5 +60,31 @@ public class App {
         Task task = new Task(taskDesc);
         list.put(list.size() + 1, task);
         System.out.println("added: " + taskDesc);
+    }
+    // Todo
+    private void addTodo(String taskDesc) {
+        Task task = new Todo(taskDesc);
+        list.put(list.size() + 1, task);
+        printAlert(task);
+    }
+    // Deadline
+    private void addDeadline(String input) {
+        String[] attributes = input.split("/by");
+        Task task = new Deadline(attributes[0], attributes[1]);
+        list.put(list.size() + 1, task);
+        printAlert(task);
+    }
+    // Event
+    private void addEvent(String input) {
+        String[] attributes = input.split("/at");
+        Task task = new Event(attributes[0], attributes[1]);
+        list.put(list.size() + 1, task);
+        printAlert(task);
+    }
+
+    private void printAlert(Task task) {
+        System.out.println("Got it. I've added this task:");
+        System.out.println(task);
+        System.out.printf("Now you have %d tasks in the list.%n", list.size());
     }
 }
