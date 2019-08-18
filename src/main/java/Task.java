@@ -13,8 +13,8 @@ public class Task {
 
     @Override
     public String toString() {
-        return String.format("[%s] %s",
-                this.isDone ? "\u2713" : "\u2717",
+        return String.format("[%c] %s",
+                this.isDone ? '\u2713' : '\u2717',
                 this.desc);
     }
 }
