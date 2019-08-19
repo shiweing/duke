@@ -7,8 +7,7 @@ public class App {
 
     public void run() {
         // Greet
-        System.out.println("Hello! I'm Duke");
-        System.out.println("What can I do for you?");
+        print("Hello! I'm Duke\nWhat can I do for you?");
         String input = scanner.nextLine();
         // Echo
         while (!input.equals("bye")) {
@@ -16,7 +15,7 @@ public class App {
             input = scanner.nextLine();
         }
         // Exit
-        System.out.println("Bye. Hope to see you again soon!");
+        print("Bye. Hope to see you again soon!");
     }
 
     private void performAction(String input) {
@@ -44,18 +43,21 @@ public class App {
                     throw new DukeException("OOPS!!! I'm sorry, but I don't know what that means :-(");
             }
         } catch (DukeException e) {
-            System.out.println(e.getMessage());
+            print(e.getMessage());
         }
     }
     // List
     private void displayList() {
         if (list.isEmpty()) {
-            System.out.println("You have no tasks in the list.");
+            print("You have no tasks in the list.");
         } else {
+            StringBuilder strbui = new StringBuilder();
+
             for (int index : list.keySet()) {
-                System.out.printf("%d. %s%n", index, list.get(index));
-                index++;
+                strbui.append(String.format("%d. %s%n", index, list.get(index)));
             }
+
+            print(strbui.deleteCharAt(strbui.length() - 1).toString());
         }
     }
     // Done
@@ -65,7 +67,7 @@ public class App {
             Task task = list.get(id);
 
             task.done();
-            System.out.printf("Nice! I\'ve marked this task as done:%n%s%n", task);
+            print(String.format("Nice! I\'ve marked this task as done:%n%s", task));
         } catch (Exception e) {
             throw new DukeException("OOPS!!! Please enter a valid task number.\n" +
                     "   Usage: done [task no.]");
@@ -115,8 +117,15 @@ public class App {
     }
 
     private void printAlert(Task task) {
-        System.out.println("Got it. I've added this task:");
-        System.out.println(task);
-        System.out.printf("Now you have %d tasks in the list.%n", list.size());
+        print(String.format("Got it. I've added this task:%n" +
+                "%s%n" +
+                "Now you have %d tasks in the list.",
+                task, list.size()));
+    }
+
+    private void print(String output) {
+        String border = "\t------------------------------------------------------------\n";
+        output = output.replaceAll("(?m)^", "\t ");
+        System.out.print(border + output + "\n" + border);
     }
 }
