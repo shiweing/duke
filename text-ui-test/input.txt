@@ -11,14 +11,21 @@ event
 event 
 event project meeting
 todo read book
+list
 deadline return book /by June 6th
+list
 done 1
+list
 event project meeting /at Aug 6th 2-4pm
+list
 todo join sports club
+list
 done 4
+list
 todo borrow book
 list
 deadline return book /by Sunday
+list
 event project meeting /at Mon 2-4pm
 list
 bye

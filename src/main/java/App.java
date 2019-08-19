@@ -1,8 +1,8 @@
 import java.util.Scanner;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class App {
-    private HashMap<Integer, Task> list = new HashMap<>();
+    private ArrayList<Task> list = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     public void run() {
@@ -51,10 +51,12 @@ public class App {
         if (list.isEmpty()) {
             print("You have no tasks in the list.");
         } else {
+            int index = 1;
             StringBuilder strbui = new StringBuilder();
 
-            for (int index : list.keySet()) {
-                strbui.append(String.format("%d. %s%n", index, list.get(index)));
+            for (Task task : list) {
+                strbui.append(String.format("%d. %s%n", index, task));
+                index++;
             }
 
             print(strbui.deleteCharAt(strbui.length() - 1).toString());
@@ -63,7 +65,7 @@ public class App {
     // Done
     private void doneTask(String[] input) throws DukeException {
         try {
-            int id = Integer.parseInt(input[1]);
+            int id = Integer.parseInt(input[1]) - 1;
             Task task = list.get(id);
 
             task.done();
@@ -80,7 +82,7 @@ public class App {
                     "   Usage: todo [task description]");
 
         Task task = new Todo(input[1]);
-        list.put(list.size() + 1, task);
+        list.add(task);
         printAlert(task);
     }
     // Deadline
@@ -96,7 +98,7 @@ public class App {
                     "   Usage: deadline [task description] /by [deadline]");
 
         Task task = new Deadline(attributes[0], attributes[1]);
-        list.put(list.size() + 1, task);
+        list.add(task);
         printAlert(task);
     }
     // Event
@@ -112,7 +114,7 @@ public class App {
                     "   Usage: event [event description] /at [event time]");
 
         Task task = new Event(attributes[0], attributes[1]);
-        list.put(list.size() + 1, task);
+        list.add(task);
         printAlert(task);
     }
 
