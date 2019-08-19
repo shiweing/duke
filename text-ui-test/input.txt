@@ -1,3 +1,15 @@
+list
+done
+done 
+done 1
+todo
+todo 
+deadline
+deadline 
+deadline return book
+event
+event 
+event project meeting
 todo read book
 deadline return book /by June 6th
 done 1

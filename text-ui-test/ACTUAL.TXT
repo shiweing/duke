@@ -7,6 +7,29 @@ Hello from
 
 Hello! I'm Duke
 What can I do for you?
+You have no tasks in the list.
+☹ OOPS!!! Please enter a valid task number.
+   Usage: done [task no.]
+☹ OOPS!!! Please enter a valid task number.
+   Usage: done [task no.]
+☹ OOPS!!! Please enter a valid task number.
+   Usage: done [task no.]
+☹ OOPS!!! The description of a todo cannot be empty.
+   Usage: todo [task description]
+☹ OOPS!!! The description of a todo cannot be empty.
+   Usage: todo [task description]
+☹ OOPS!!! The description of a deadline task cannot be empty.
+   Usage: deadline [task description] /by [deadline]
+☹ OOPS!!! The description of a deadline task cannot be empty.
+   Usage: deadline [task description] /by [deadline]
+☹ OOPS!!! Please provide a deadline for the task.
+   Usage: deadline [task description] /by [deadline]
+☹ OOPS!!! The description of an event cannot be empty.
+   Usage: event [event description] /at [event time]
+☹ OOPS!!! The description of an event cannot be empty.
+   Usage: event [event description] /at [event time]
+☹ OOPS!!! Please provide a time for the event.
+   Usage: event [event description] /at [event time]
 Got it. I've added this task:
 [T][✗] read book
 Now you have 1 tasks in the list.
