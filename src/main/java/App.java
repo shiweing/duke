@@ -8,11 +8,11 @@ public class App {
     public void run() {
         // Greet
         print("Hello! I'm Duke\nWhat can I do for you?");
-        String input = scanner.nextLine();
+        String input = scanner.nextLine().strip();
         // Echo
         while (!input.equals("bye")) {
             performAction(input);
-            input = scanner.nextLine();
+            input = scanner.nextLine().strip();
         }
         // Exit
         print("Bye. Hope to see you again soon!");
@@ -38,6 +38,9 @@ public class App {
                     break;
                 case "event":
                     addEvent(inputArr);
+                    break;
+                case "delete":
+                    deleteTask(inputArr);
                     break;
                 default:
                     throw new DukeException("OOPS!!! I'm sorry, but I don't know what that means :-(");
@@ -117,10 +120,24 @@ public class App {
         list.add(task);
         printAlert(task);
     }
+    // Delete
+    private void deleteTask(String[] input) throws DukeException {
+        try {
+            int id = Integer.parseInt(input[1]) - 1;
+            Task task = list.remove(id);
+            print(String.format("Noted. I've removed this task:%n" +
+                            "\t%s%n" +
+                            "Now you have %d tasks in the list",
+                    task, list.size()));
+        } catch (Exception e) {
+            throw new DukeException("OOPS!!! Please enter a valid task number.\n" +
+                    "   Usage: delete [task no.]");
+        }
+    }
 
     private void printAlert(Task task) {
         print(String.format("Got it. I've added this task:%n" +
-                "%s%n" +
+                "\t%s%n" +
                 "Now you have %d tasks in the list.",
                 task, list.size()));
     }
