@@ -21,7 +21,7 @@ public class Event extends Task {
      * Another constructor for Eveny.
      * @param desc Task description.
      * @param isDone Completion of task.
-     * @param at Event tming..
+     * @param at Event timing..
      */
     Event(String desc, boolean isDone, String at) {
         super(desc, isDone);
