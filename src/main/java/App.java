@@ -1,5 +1,9 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
+
+import java.io.File;
 
 /**
  * Handles logic of applicatiopn.
@@ -18,15 +22,17 @@ public class App {
      * Reads input from user and sends to performAction to determine action.
      */
     public void run() {
+
         // Greet
         print("Hello! I'm Duke\nWhat can I do for you?");
         String input = scanner.nextLine().strip();
-        // Echo
+
         while (!input.equals("bye")) {
             performAction(input);
             input = scanner.nextLine().strip();
         }
         // Exit
+        saveTasks();
         print("Bye. Hope to see you again soon!");
     }
 
@@ -176,6 +182,26 @@ public class App {
         } catch (Exception e) {
             throw new DukeException("OOPS!!! Please enter a valid task number.\n" +
                     "   Usage: delete [task no.]");
+        }
+    }
+
+    /**
+     * Save tasks in list to a save file.
+     */
+    private void saveTasks() {
+        try {
+            File file = new File("C:\\Users\\shiwe\\Documents\\duke\\data\\duke.txt");
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+
+            FileWriter fw = new FileWriter(file);
+            for (Task task : list) {
+                fw.write(task.getType().taskToString(task));
+            }
+            fw.close();;
+
+        } catch (IOException | DukeException e) {
+            print(e.getMessage());
         }
     }
 
