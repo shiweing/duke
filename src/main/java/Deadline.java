@@ -17,6 +17,33 @@ public class Deadline extends Task {
         this.by = by.strip();
     }
 
+    /**
+     * Another constructor for Deadline.
+     * @param desc Task description.
+     * @param isDone Completion of task.
+     * @param by Deadline of task.
+     */
+    Deadline(String desc, boolean isDone, String by) {
+        super(desc, isDone);
+        this.by = by.strip();
+    }
+
+    /**
+     * Return deadline of task.
+     * @return Task deadline.
+     */
+    public String getBy() {
+        return this.by;
+    }
+
+    /**
+     * Returns type of TaskType.DEADLINE.
+     * @return Type DEADLINE.
+     */
+    public TaskType getType() {
+        return TaskType.DEADLINE;
+    }
+
     @Override
     public String toString() {
         return String.format("[D]%s (by: %s)", super.toString(), this.by);

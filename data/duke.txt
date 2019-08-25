@@ -1,0 +1,3 @@
+TODO | read book | true
+DEADLINE | return book | false | June 6th
+EVENT | project meeting | false | Aug 6th 2-4pm
