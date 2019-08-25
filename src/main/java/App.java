@@ -1,13 +1,17 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
-import java.io.File;
-
 /**
- * Handles logic of applicatiopn.
+ * Handles logic of application.
  */
 public class App {
     /**
@@ -140,13 +144,20 @@ public class App {
 
         String[] attributes = input[1].split(" /by ");
 
-        if (attributes.length < 2 || attributes[1].strip().isEmpty())
+        if (attributes.length < 2 || attributes[1].strip().isEmpty()) {
             throw new DukeException("OOPS!!! Please provide a deadline for the task.\n" +
                     "   Usage: deadline [task description] /by [deadline]");
+        }
 
-        Task task = new Deadline(attributes[0], attributes[1]);
-        list.add(task);
-        printAlert(task);
+        try {
+            Date deadline = new SimpleDateFormat("dd/MM/yyyy HHmm").parse(attributes[1]);
+
+            Task task = new Deadline(attributes[0], deadline);
+            list.add(task);
+            printAlert(task);
+        } catch (ParseException e) {
+            throw new DukeException("Please enter the deadline in the following format: dd/MM/yyyy HHmm");
+        }
     }
 
     /**
@@ -165,9 +176,15 @@ public class App {
             throw new DukeException("OOPS!!! Please provide a time for the event.\n" +
                     "   Usage: event [event description] /at [event time]");
 
-        Task task = new Event(attributes[0], attributes[1]);
-        list.add(task);
-        printAlert(task);
+        try {
+            Date eventTime = new SimpleDateFormat("dd/MM/yyyy HHmm").parse(attributes[1]);
+
+            Task task = new Event(attributes[0], eventTime);
+            list.add(task);
+            printAlert(task);
+        } catch (ParseException e) {
+            throw new DukeException("Please enter the event time in the following format: dd/MM/yyyy HHmm");
+        }
     }
 
     /**
