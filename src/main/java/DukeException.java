@@ -1,3 +1,6 @@
+/**
+ * Represent an Exception thrown by the application.
+ */
 public class DukeException extends Exception {
     DukeException(String message) {
         super(message);
