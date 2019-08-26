@@ -12,8 +12,8 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 ☹ OOPS!!! Please enter a valid task number.
@@ -24,8 +24,8 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	    Usage: done [task no.]
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 Nice! I've marked this task as done:
-	 [T][✓] read book
+	 ☹ OOPS!!! Please enter a valid task number.
+	    Usage: done [task no.]
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 ☹ OOPS!!! The description of a todo cannot be empty.
@@ -48,6 +48,9 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	    Usage: deadline [task description] /by [deadline]
 	------------------------------------------------------------
 	------------------------------------------------------------
+	 ☹ Please enter the deadline in the following format: dd/MM/yyyy HHmm
+	------------------------------------------------------------
+	------------------------------------------------------------
 	 ☹ OOPS!!! The description of an event cannot be empty.
 	    Usage: event [event description] /at [event time]
 	------------------------------------------------------------
@@ -60,6 +63,9 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	    Usage: event [event description] /at [event time]
 	------------------------------------------------------------
 	------------------------------------------------------------
+	 ☹ Please enter the event time in the following format: dd/MM/yyyy HHmm
+	------------------------------------------------------------
+	------------------------------------------------------------
 	 ☹ OOPS!!! Please enter a valid task number.
 	    Usage: delete [task no.]
 	------------------------------------------------------------
@@ -69,8 +75,8 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Got it. I've added this task:
@@ -79,34 +85,34 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	 4. [T][✗] join sports club
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Got it. I've added this task:
-	 	[D][✗] borrow book (by: Sunday)
+	 	[D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
 	 Now you have 5 tasks in the list.
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	 4. [T][✗] join sports club
-	 5. [D][✗] borrow book (by: Sunday)
+	 5. [D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Got it. I've added this task:
-	 	[E][✗] project meeting (at: Mon 2-4pm)
+	 	[E][✗] project meeting (at: 22 Sep 2019 09:30 AM)
 	 Now you have 6 tasks in the list.
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	 4. [T][✗] join sports club
-	 5. [D][✗] borrow book (by: Sunday)
-	 6. [E][✗] project meeting (at: Mon 2-4pm)
+	 5. [D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
+	 6. [E][✗] project meeting (at: 22 Sep 2019 09:30 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Nice! I've marked this task as done:
@@ -114,11 +120,11 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	 4. [T][✓] join sports club
-	 5. [D][✗] borrow book (by: Sunday)
-	 6. [E][✗] project meeting (at: Mon 2-4pm)
+	 5. [D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
+	 6. [E][✗] project meeting (at: 22 Sep 2019 09:30 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Noted. I've removed this task:
@@ -127,19 +133,19 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
-	 2. [D][✗] return book (by: June 6th))
-	 3. [E][✗] project meeting (at: Aug 6th 2-4pm)
-	 4. [D][✗] borrow book (by: Sunday)
-	 5. [E][✗] project meeting (at: Mon 2-4pm)
+	 2. [D][✗] borrow book (by: 21 Sep 2019 12:30 PM)
+	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
+	 4. [D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
+	 5. [E][✗] project meeting (at: 22 Sep 2019 09:30 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Noted. I've removed this task:
-	 	[D][✗] borrow book (by: Sunday)
+	 	[D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
 	 Now you have 4 tasks in the list
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Noted. I've removed this task:
-	 	[E][✗] project meeting (at: Mon 2-4pm)
+	 	[E][✗] project meeting (at: 22 Sep 2019 09:30 AM)
 	 Now you have 3 tasks in the list
 	------------------------------------------------------------
 	------------------------------------------------------------

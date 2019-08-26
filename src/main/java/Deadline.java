@@ -11,7 +11,7 @@ public class Deadline extends Task {
     private Date by;
 
     /**
-     * Constructor for Deadlne.
+     * Constructor for Deadline.
      * @param desc Task description.
      * @param by Deadline of task.
      */
@@ -26,17 +26,21 @@ public class Deadline extends Task {
      * @param isDone Completion of task.
      * @param by Deadline of task.
      */
-    Deadline(String desc, boolean isDone, String by) {
+    Deadline(String desc, boolean isDone, Date by) {
         super(desc, isDone);
-        this.by = by.strip();
+        this.by = by;
+    }
+
+    public Date getBy() {
+        return this.by;
     }
 
     /**
      * Return deadline of task.
-     * @return Task deadline.
+     * @return Task deadline in String
      */
-    public String getBy() {
-        return this.by;
+    public String getByString() {
+        return new SimpleDateFormat("dd MMM yyyy hh:mm aa").format(this.by);
     }
 
     /**

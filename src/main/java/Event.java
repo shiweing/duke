@@ -21,22 +21,26 @@ public class Event extends Task {
     }
 
     /**
-     * Another constructor for Eveny.
+     * Another constructor for Event.
      * @param desc Task description.
      * @param isDone Completion of task.
      * @param at Event timing..
      */
-    Event(String desc, boolean isDone, String at) {
+    Event(String desc, boolean isDone, Date at) {
         super(desc, isDone);
-        this.at = at.strip();
+        this.at = at;
+    }
+
+    public Date getAt() {
+        return this.at;
     }
 
     /**
      * Returns event timing.
-     * @return Event timing.
+     * @return Event timing in String
      */
-    public String getAt() {
-        return this.at;
+    public String getAtString() {
+        return new SimpleDateFormat("dd MMM yyyy hh:mm aa").format(this.at);
     }
 
     /**

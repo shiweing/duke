@@ -1,5 +1,11 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public enum TaskType {
     TODO, DEADLINE, EVENT;
+
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HHmm");
 
     /**
      * Checks input for each task type.
@@ -47,10 +53,10 @@ public enum TaskType {
             return String.format("%s | %s | %b\n", this, todo.getDesc(), todo.isDone());
         case DEADLINE:
             Deadline deadline = (Deadline) task;
-            return String.format("%s | %s | %b | %s\n", this, deadline.getDesc(), deadline.isDone(), deadline.getBy());
+            return String.format("%s | %s | %b | %s\n", this, deadline.getDesc(), deadline.isDone(), dateFormat.format(deadline.getBy()));
         case EVENT:
             Event event = (Event) task;
-            return String.format("%s | %s | %b | %s\n", this, event.getDesc(), event.isDone(), event.getAt());
+            return String.format("%s | %s | %b | %s\n", this, event.getDesc(), event.isDone(), dateFormat.format(event.getAt()));
         default:
             throw new DukeException("Unknown type: " + this);
         }
@@ -64,15 +70,21 @@ public enum TaskType {
      */
     Task stringToTask(String input) throws DukeException {
         String[] attributes = checkAndSplitInput(input);
-        switch (this) {
-        case TODO:
-            return new Todo(attributes[0], Boolean.parseBoolean(attributes[1]));
-        case DEADLINE:
-            return new Deadline(attributes[0], Boolean.parseBoolean(attributes[1]), attributes[2]);
-        case EVENT:
-            return new Event(attributes[0], Boolean.parseBoolean(attributes[1]), attributes[2]);
-        default:
-            throw new DukeException("Unknown type: " + this);
+        try {
+            switch (this) {
+                case TODO:
+                    return new Todo(attributes[0], Boolean.parseBoolean(attributes[1]));
+                case DEADLINE:
+                    Date deadline = dateFormat.parse(attributes[2]);
+                    return new Deadline(attributes[0], Boolean.parseBoolean(attributes[1]), deadline);
+                case EVENT:
+                    Date eventTime = dateFormat.parse(attributes[2]);
+                    return new Event(attributes[0], Boolean.parseBoolean(attributes[1]), eventTime);
+                default:
+                    throw new DukeException("Unknown type: " + this);
+            }
+        } catch (ParseException e) {
+            throw new DukeException("Invalid input: " + input);
         }
     }
 }

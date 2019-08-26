@@ -1,23 +1,25 @@
 list
 done
 done 
-done 1
+done 9
 todo
 todo 
 deadline
 deadline 
 deadline return book
+deadline borrow book /by 21/09/2019 12
 event
 event 
 event project meeting
+event project meeting /at 22/09/2019 12
 delete
 delete 4
 list
 todo join sports club
 list
-deadline borrow book /by Sunday
+deadline borrow book /by 21/09/2019 1200
 list
-event project meeting /at Mon 2-4pm
+event project meeting /at 22/09/2019 0930
 list
 done 4
 list
