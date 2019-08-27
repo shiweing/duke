@@ -1,8 +1,10 @@
+package duke.util;
+
 /**
  * Represent an Exception thrown by the application.
  */
 public class DukeException extends Exception {
-    DukeException(String message) {
+    public DukeException(String message) {
         super(message);
     }
 

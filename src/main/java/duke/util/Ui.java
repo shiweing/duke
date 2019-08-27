@@ -1,3 +1,7 @@
+package duke.util;
+
+import duke.task.Task;
+
 import java.util.Scanner;
 
 /**
@@ -30,7 +34,7 @@ public class Ui {
 
     /**
      * Prints an alert after a task is added.
-     * @param task Task added.
+     * @param task duke.task.Task added.
      */
     public void printAddAlert(Task task, int listSize) {
         print(formatSuccess(String.format("Got it. I've added this task:%n" +

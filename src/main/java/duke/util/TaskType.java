@@ -1,3 +1,12 @@
+package duke.util;
+
+import duke.task.Deadline;
+import duke.task.Event;
+import duke.task.Task;
+import duke.task.Todo;
+import duke.util.DukeException;
+import duke.util.Error;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -65,7 +74,7 @@ public enum TaskType {
      * @return Created task
      * @throws DukeException If input check fails
      */
-    Task commandToTask(String input) throws DukeException {
+    public Task commandToTask(String input) throws DukeException {
         String[] attributes = checkAndSplitAttributes(input);
 
         switch (this) {
@@ -90,7 +99,7 @@ public enum TaskType {
         }
     }
 
-    Task stringToTask(String input, boolean isDone) throws DukeException {
+    public Task stringToTask(String input, boolean isDone) throws DukeException {
         Task task = commandToTask(input);
         if (isDone) {
             task.done();
@@ -101,11 +110,11 @@ public enum TaskType {
 
     /**
      * Returns String output of tasks in format to save in file.
-     * @param task Task to output string
+     * @param task duke.task.Task to output string
      * @return String of format [Type] | [Desc] | [isDone] | [other attribute]
      * @throws DukeException If unknown type
      */
-    String taskToString(Task task) throws DukeException {
+    public String taskToString(Task task) throws DukeException {
         switch (this) {
             case TODO:
                 Todo todo = (Todo) task;

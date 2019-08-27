@@ -1,7 +1,16 @@
+package duke.command;
+
+import duke.task.Task;
+
+import duke.util.DukeException;
+import duke.util.TaskList;
+import duke.util.Ui;
+import duke.util.Error;
+
 public class DeleteCommand extends Command {
     private int taskId;
 
-    DeleteCommand(String attribute) throws DukeException {
+    public DeleteCommand(String attribute) throws DukeException {
         try {
             taskId = Integer.parseInt(attribute.strip()) - 1;
         } catch (NumberFormatException e) {

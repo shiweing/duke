@@ -1,3 +1,7 @@
+package duke.task;
+
+import duke.util.TaskType;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,11 +15,11 @@ public class Deadline extends Task {
     private Date by;
 
     /**
-     * Constructor for Deadline.
-     * @param desc Task description.
-     * @param by Deadline of task.
+     * Constructor for duke.task.Deadline.
+     * @param desc duke.task.Task description.
+     * @param by duke.task.Deadline of task.
      */
-    Deadline(String desc, Date by) {
+    public Deadline(String desc, Date by) {
         super(desc);
         this.by = by;
     }
@@ -26,14 +30,14 @@ public class Deadline extends Task {
 
     /**
      * Return deadline of task.
-     * @return Task deadline in String
+     * @return duke.task.Task deadline in String
      */
     public String getByString() {
         return new SimpleDateFormat("dd MMM yyyy hh:mm aa").format(this.by);
     }
 
     /**
-     * Returns type of TaskType.DEADLINE.
+     * Returns type of duke.util.TaskType.DEADLINE.
      * @return Type DEADLINE.
      */
     public TaskType getType() {

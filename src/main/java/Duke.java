@@ -1,3 +1,6 @@
+import duke.command.Command;
+import duke.util.*;
+
 public class Duke {
     private TaskList tasks;
     private Ui ui;

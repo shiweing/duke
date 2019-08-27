@@ -1,3 +1,5 @@
+package duke.util;
+
 public enum Error {
     DONE("OOPS!!! Please enter a valid task number.\n" +
             "   Usage: done [task no.]"),

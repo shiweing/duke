@@ -1,10 +1,14 @@
+package duke.util;
+
+import duke.task.Task;
+
 import java.util.ArrayList;
 
 public class TaskList {
     private ArrayList<Task> list;
 
-    TaskList() {
-        list = new ArrayList<Task>();
+    public TaskList() {
+        list = new ArrayList<>();
     }
 
     public boolean isEmpty() {

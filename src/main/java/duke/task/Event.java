@@ -1,3 +1,7 @@
+package duke.task;
+
+import duke.util.TaskType;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,11 +15,11 @@ public class Event extends Task {
     private Date at;
 
     /**
-     * Constructor for Event.
-     * @param desc Task description.
-     * @param at Event timing.
+     * Constructor for duke.task.Event.
+     * @param desc duke.task.Task description.
+     * @param at duke.task.Event timing.
      */
-    Event(String desc, Date at) {
+    public Event(String desc, Date at) {
         super(desc);
         this.at = at;
     }
@@ -26,14 +30,14 @@ public class Event extends Task {
 
     /**
      * Returns event timing.
-     * @return Event timing in String
+     * @return duke.task.Event timing in String
      */
     public String getAtString() {
         return new SimpleDateFormat("dd MMM yyyy hh:mm aa").format(this.at);
     }
 
     /**
-     * Returns TaskType.EVENT.
+     * Returns duke.util.TaskType.EVENT.
      * @return Type EVENT.
      */
     public TaskType getType() {

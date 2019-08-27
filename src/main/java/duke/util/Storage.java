@@ -1,3 +1,7 @@
+package duke.util;
+
+import duke.task.Task;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -69,7 +73,7 @@ public class Storage {
             fw.close();
 
         } catch (IOException e) {
-            throw new DukeException("Error writing to file.");
+            throw new DukeException("duke.util.Error writing to file.");
         }
     }
 }

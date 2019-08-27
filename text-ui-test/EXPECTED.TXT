@@ -156,5 +156,5 @@ Hello from
 	 Bye. Hope to see you again soon!
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 Saving tasks to C:\Users\shiwe\Documents\duke\data\duke.txt
+	 Saving tasks to C:\Users\shiwe\Documents\duke\data\duke.txt...
 	------------------------------------------------------------

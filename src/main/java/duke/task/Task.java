@@ -1,9 +1,13 @@
+package duke.task;
+
+import duke.util.TaskType;
+
 /**
  * Represent a task.
  */
-abstract class Task {
+public abstract class Task {
     /**
-     * Task description.
+     * duke.task.Task description.
      */
     private String desc;
     /**
@@ -12,8 +16,8 @@ abstract class Task {
     private boolean isDone;
 
     /**
-     * Constructor for Task.
-     * @param desc Task description.
+     * Constructor for duke.task.Task.
+     * @param desc duke.task.Task description.
      */
     Task(String desc) {
         this.desc = desc.strip();
@@ -22,7 +26,7 @@ abstract class Task {
 
     /**
      * Return task description.
-     * @return Task description.
+     * @return duke.task.Task description.
      */
     public String getDesc() {
         return desc;
@@ -43,7 +47,7 @@ abstract class Task {
         this.isDone = true;
     }
 
-    abstract TaskType getType();
+    public abstract TaskType getType();
 
     @Override
     public String toString() {

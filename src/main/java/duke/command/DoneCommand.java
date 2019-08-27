@@ -1,7 +1,16 @@
+package duke.command;
+
+import duke.task.Task;
+
+import duke.util.DukeException;
+import duke.util.TaskList;
+import duke.util.Ui;
+import duke.util.Error;
+
 public class DoneCommand extends Command {
     private int taskId;
 
-    DoneCommand(String attribute) throws DukeException {
+    public DoneCommand(String attribute) throws DukeException {
         try {
             taskId = Integer.parseInt(attribute.strip()) - 1;
         } catch (NumberFormatException e) {
