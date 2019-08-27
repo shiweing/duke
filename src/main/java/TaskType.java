@@ -1,5 +1,6 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public enum TaskType {
@@ -13,31 +14,89 @@ public enum TaskType {
      * @return array of attributes
      * @throws DukeException if check fails
      */
-    private String[] checkAndSplitInput(String input) throws DukeException {
-        String[] attributes = input.split(" \\| ");
+    private String[] checkAndSplitAttributes(String input) throws DukeException {
+        ArrayList<String> attributes = new ArrayList<>();
+        String[] attrArr;
 
         switch (this) {
         case TODO:
-            if (attributes.length < 2 || attributes[0].strip().isEmpty()
-                    || (!attributes[1].equals("true") && !attributes[1].equals("false"))) {
-                throw new DukeException("Invalid input: " + input);
+            if (input.strip().isEmpty()) {
+                throw new DukeException(Error.TODO.getErrorString());
             }
+            attributes.add(input.strip());
             break;
 
         case DEADLINE:
-        case EVENT:
-            if (attributes.length < 3 || attributes[0].strip().isEmpty()
-                    || (!attributes[1].equals("true") && !attributes[1].equals("false"))
-                    || attributes[2].strip().isEmpty()) {
-                throw new DukeException("Invalid input: " + input);
+            if (input.strip().isEmpty()) {
+                throw new DukeException(Error.DEADLINE.getErrorString());
             }
+            // attrArr[0]: task desc | attrArr[1]: deadline
+            attrArr = input.split(" /by ");
+            if (attrArr.length < 2) {
+                throw new DukeException(Error.DEADLINE_BY.getErrorString());
+            }
+            attributes.add(attrArr[0].strip());
+            attributes.add(attrArr[1].strip());
+            break;
+
+        case EVENT:
+            if (input.strip().isEmpty()) {
+                throw new DukeException(Error.EVENT.getErrorString());
+            }
+            // attrArr[0]: task desc | attrArr[1]: eventTime
+            attrArr = input.split(" /at ");
+            if (attrArr.length < 2) {
+                throw new DukeException(Error.EVENT_AT.getErrorString());
+            }
+            attributes.add(attrArr[0].strip());
+            attributes.add(attrArr[1].strip());
             break;
 
         default:
             throw new DukeException("Unknown type: " + this);
         }
 
-        return attributes;
+        return attributes.toArray(new String[attributes.size()]);
+    }
+
+    /**
+     * Returns created task from String input.
+     * @param input attributes from user input of format [Desc] | [isDone] | [other attribute]
+     * @return Created task
+     * @throws DukeException If input check fails
+     */
+    Task commandToTask(String input) throws DukeException {
+        String[] attributes = checkAndSplitAttributes(input);
+
+        switch (this) {
+        case TODO:
+            return new Todo(attributes[0]);
+        case DEADLINE:
+            try {
+                Date deadline = dateFormat.parse(attributes[1]);
+                return new Deadline(attributes[0], deadline);
+            } catch (ParseException e) {
+                throw new DukeException(Error.DEADLINE_FORMAT.getErrorString());
+            }
+        case EVENT:
+            try {
+                Date eventTime = dateFormat.parse(attributes[1]);
+                return new Event(attributes[0], eventTime);
+            } catch (ParseException e) {
+                throw new DukeException(Error.EVENT_TIME_FORMAT.getErrorString());
+            }
+        default:
+            throw new DukeException("Unknown type: " + this);
+        }
+    }
+
+    Task stringToTask(String input, boolean isDone) throws DukeException {
+        Task task = commandToTask(input);
+        if (isDone) {
+            task.done();
+        }
+
+        return task;
     }
 
     /**
@@ -48,43 +107,19 @@ public enum TaskType {
      */
     String taskToString(Task task) throws DukeException {
         switch (this) {
-        case TODO:
-            Todo todo = (Todo) task;
-            return String.format("%s | %s | %b\n", this, todo.getDesc(), todo.isDone());
-        case DEADLINE:
-            Deadline deadline = (Deadline) task;
-            return String.format("%s | %s | %b | %s\n", this, deadline.getDesc(), deadline.isDone(), dateFormat.format(deadline.getBy()));
-        case EVENT:
-            Event event = (Event) task;
-            return String.format("%s | %s | %b | %s\n", this, event.getDesc(), event.isDone(), dateFormat.format(event.getAt()));
-        default:
-            throw new DukeException("Unknown type: " + this);
-        }
-    }
-
-    /**
-     * Returns created task from String input.
-     * @param input attributes from user input of format [Desc] | [isDone] | [other attribute]
-     * @return Created task
-     * @throws DukeException If input check fails
-     */
-    Task stringToTask(String input) throws DukeException {
-        String[] attributes = checkAndSplitInput(input);
-        try {
-            switch (this) {
-                case TODO:
-                    return new Todo(attributes[0], Boolean.parseBoolean(attributes[1]));
-                case DEADLINE:
-                    Date deadline = dateFormat.parse(attributes[2]);
-                    return new Deadline(attributes[0], Boolean.parseBoolean(attributes[1]), deadline);
-                case EVENT:
-                    Date eventTime = dateFormat.parse(attributes[2]);
-                    return new Event(attributes[0], Boolean.parseBoolean(attributes[1]), eventTime);
-                default:
-                    throw new DukeException("Unknown type: " + this);
-            }
-        } catch (ParseException e) {
-            throw new DukeException("Invalid input: " + input);
+            case TODO:
+                Todo todo = (Todo) task;
+                return String.format("%s %s /done %b\n", this.toString(), todo.getDesc(), todo.isDone());
+            case DEADLINE:
+                Deadline deadline = (Deadline) task;
+                return String.format("%s %s /by %s /done %b\n",
+                        this.toString(), deadline.getDesc(), dateFormat.format(deadline.getBy()), deadline.isDone());
+            case EVENT:
+                Event event = (Event) task;
+                return String.format("%s %s /at %s /done %b\n",
+                        this.toString(), event.getDesc(), dateFormat.format(event.getAt()), event.isDone());
+            default:
+                throw new DukeException("Unknown type: " + this);
         }
     }
 }

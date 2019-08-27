@@ -1,3 +1,3 @@
-TODO | read book | true
-DEADLINE | borrow book | false | 21/09/2019 1230
-EVENT | CCA meeting | false | 22/09/2019 0920
+TODO read book /done true
+DEADLINE borrow book /by 21/09/2019 1230 /done false
+EVENT CCA meeting /at 22/09/2019 0920 /done false

@@ -20,17 +20,6 @@ public class Event extends Task {
         this.at = at;
     }
 
-    /**
-     * Another constructor for Event.
-     * @param desc Task description.
-     * @param isDone Completion of task.
-     * @param at Event timing..
-     */
-    Event(String desc, boolean isDone, Date at) {
-        super(desc, isDone);
-        this.at = at;
-    }
-
     public Date getAt() {
         return this.at;
     }
@@ -53,7 +42,6 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return String.format("[E]%s (at: %s)", super.toString(),
-                new SimpleDateFormat("dd MMM yyyy hh:mm aa").format(this.at));
+        return String.format("[E]%s (at: %s)", super.toString(), getAtString());
     }
 }

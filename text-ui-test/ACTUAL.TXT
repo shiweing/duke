@@ -5,7 +5,9 @@ Hello from
 | |_| | |_| |   <  __/
 |____/ \__,_|_|\_\___|
 
-Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
+	------------------------------------------------------------
+	 Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt...
+	------------------------------------------------------------
 	------------------------------------------------------------
 	 Hello! I'm Duke
 	 What can I do for you?
@@ -16,62 +18,64 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please enter a valid task number.
-	    Usage: done [task no.]
+	 [31m☹ OOPS!!! Please enter a valid task number.
+	    Usage: done [task no.][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please enter a valid task number.
-	    Usage: done [task no.]
+	 [31m☹ OOPS!!! Please enter a valid task number.
+	    Usage: done [task no.][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please enter a valid task number.
-	    Usage: done [task no.]
+	 [31m☹ OOPS!!! Please enter a valid task number.
+	    Usage: done [task no.][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! The description of a todo cannot be empty.
-	    Usage: todo [task description]
+	 [31m☹ OOPS!!! The description of a todo cannot be empty.
+	    Usage: todo [task description][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! The description of a todo cannot be empty.
-	    Usage: todo [task description]
+	 [31m☹ OOPS!!! The description of a todo cannot be empty.
+	    Usage: todo [task description][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! The description of a deadline task cannot be empty.
-	    Usage: deadline [task description] /by [deadline]
+	 [31m☹ OOPS!!! The description of a deadline task cannot be empty.
+	    Usage: deadline [task description] /by [deadline][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! The description of a deadline task cannot be empty.
-	    Usage: deadline [task description] /by [deadline]
+	 [31m☹ OOPS!!! The description of a deadline task cannot be empty.
+	    Usage: deadline [task description] /by [deadline][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please provide a deadline for the task.
-	    Usage: deadline [task description] /by [deadline]
+	 [31m☹ OOPS!!! Please provide a deadline for the task.
+	    Usage: deadline [task description] /by [deadline][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ Please enter the deadline in the following format: dd/MM/yyyy HHmm
+	 [31m☹ Oh no! Please ensure the deadline in the following format:
+	    dd/MM/yyyy HHmm[0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! The description of an event cannot be empty.
-	    Usage: event [event description] /at [event time]
+	 [31m☹ OOPS!!! The description of an event cannot be empty.
+	    Usage: event [event description] /at [event time][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! The description of an event cannot be empty.
-	    Usage: event [event description] /at [event time]
+	 [31m☹ OOPS!!! The description of an event cannot be empty.
+	    Usage: event [event description] /at [event time][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please provide a time for the event.
-	    Usage: event [event description] /at [event time]
+	 [31m☹ OOPS!!! Please provide a time for the event.
+	    Usage: event [event description] /at [event time][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ Please enter the event time in the following format: dd/MM/yyyy HHmm
+	 [31m☹ Oh no! Please ensure the event time in the following format:
+	    dd/MM/yyyy HHmm[0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please enter a valid task number.
-	    Usage: delete [task no.]
+	 [31m☹ OOPS!!! Please enter a valid task number.
+	    Usage: delete [task no.][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 ☹ OOPS!!! Please enter a valid task number.
-	    Usage: delete [task no.]
+	 [31m☹ OOPS!!! Please enter a valid task number.
+	    Usage: delete [task no.][0m
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
@@ -79,9 +83,9 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	 3. [E][✗] CCA meeting (at: 22 Sep 2019 09:20 AM)
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 Got it. I've added this task:
+	 [32mGot it. I've added this task:
 	 	[T][✗] join sports club
-	 Now you have 4 tasks in the list.
+	 Now you have 4 tasks in the list.[0m
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
@@ -90,9 +94,9 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	 4. [T][✗] join sports club
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 Got it. I've added this task:
+	 [32mGot it. I've added this task:
 	 	[D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
-	 Now you have 5 tasks in the list.
+	 Now you have 5 tasks in the list.[0m
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
@@ -102,9 +106,9 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	 5. [D][✗] borrow book (by: 21 Sep 2019 12:00 PM)
 	------------------------------------------------------------
 	------------------------------------------------------------
-	 Got it. I've added this task:
+	 [32mGot it. I've added this task:
 	 	[E][✗] project meeting (at: 22 Sep 2019 09:30 AM)
-	 Now you have 6 tasks in the list.
+	 Now you have 6 tasks in the list.[0m
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
@@ -116,7 +120,7 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Nice! I've marked this task as done:
-	 [T][✓] join sports club
+	    [T][✓] join sports club
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 1. [T][✓] read book
@@ -150,4 +154,7 @@ Loading tasks from C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------
 	------------------------------------------------------------
 	 Bye. Hope to see you again soon!
+	------------------------------------------------------------
+	------------------------------------------------------------
+	 Saving tasks to C:\Users\shiwe\Documents\duke\data\duke.txt
 	------------------------------------------------------------

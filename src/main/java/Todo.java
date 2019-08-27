@@ -11,15 +11,6 @@ public class Todo extends Task {
     }
 
     /**
-     * Another constructor for Todo.
-     * @param desc Task description.
-     * @param isDone Task completion.
-     */
-    Todo(String desc, boolean isDone) {
-        super(desc, isDone);
-    }
-
-    /**
      * Returns TaskType.TODO.
      * @return Type TODO.
      */

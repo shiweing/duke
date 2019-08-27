@@ -21,16 +21,6 @@ abstract class Task {
     }
 
     /**
-     * Another constructor for Task.
-     * @param desc Task description.
-     * @param isDone Indicator for completion of task.
-     */
-    Task(String desc, boolean isDone) {
-        this.desc = desc.strip();
-        this.isDone = isDone;
-    }
-
-    /**
      * Return task description.
      * @return Task description.
      */
