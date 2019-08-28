@@ -1,10 +1,21 @@
 import duke.command.Command;
-import duke.util.*;
 
+import duke.util.DukeException;
+import duke.util.Storage;
+import duke.util.TaskList;
+import duke.util.Ui;
+import duke.util.Parser;
+
+/**
+ * Main class of project.
+ */
 public class Duke {
     private TaskList tasks;
     private Ui ui;
 
+    /**
+     * Constructor for Duke.
+     */
     public Duke() {
         ui = new Ui();
         tasks = new TaskList();
@@ -17,6 +28,9 @@ public class Duke {
         }
     }
 
+    /**
+     * Starts application.
+     */
     public void run() {
         ui.greet();
         boolean isExit = false;
