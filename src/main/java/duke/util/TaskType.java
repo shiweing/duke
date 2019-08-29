@@ -73,7 +73,7 @@ public enum TaskType {
     }
 
     /**
-     * Returns created task from String input.
+     * Returns created task from command input.
      * @param input attributes from user input of format [Desc] [other attributes].
      * @return Created task.
      * @throws DukeException If input check fails.
@@ -103,6 +103,13 @@ public enum TaskType {
         }
     }
 
+    /**
+     * Returns created task from String input.
+     * @param input attributes from user input of format [Desc] [other attributes].
+     * @param isDone indicator for whether the taskis done.
+     * @return Created task.
+     * @throws DukeException If input check fails.
+     */
     public Task stringToTask(String input, boolean isDone) throws DukeException {
         Task task = commandToTask(input);
         if (isDone) {

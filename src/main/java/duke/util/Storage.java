@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Handles loading and saving of tasks to hard drive
+ * Handles loading and saving of tasks to hard drive.
  */
 public class Storage {
     public static File file = new File("data\\duke.txt");

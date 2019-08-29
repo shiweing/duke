@@ -46,7 +46,7 @@ public class TaskList {
 
     /**
      * Add task to list.
-     * @param task
+     * @param task Task to add.
      */
     public void add(Task task) {
         list.add(task);

@@ -2,6 +2,7 @@ list
 done
 done 
 done 9
+find
 todo
 todo 
 deadline
@@ -23,6 +24,7 @@ event project meeting /at 22/09/2019 0930
 list
 done 4
 list
+find book
 delete 4
 list
 delete 4
