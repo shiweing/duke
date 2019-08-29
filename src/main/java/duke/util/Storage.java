@@ -73,7 +73,7 @@ public class Storage {
             fw.close();
 
         } catch (IOException e) {
-            throw new DukeException("duke.util.Error writing to file.");
+            throw new DukeException("Error writing to file.");
         }
     }
 }

@@ -4,24 +4,28 @@ import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
-import duke.util.DukeException;
-import duke.util.Error;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Handles tasks creation from String and command and Task to String based on Task type.
+ */
 public enum TaskType {
     TODO, DEADLINE, EVENT;
 
+    /**
+     * Date formatter for deadline and event time.
+     */
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HHmm");
 
     /**
      * Checks input for each task type.
-     * @param input user input of attributes
-     * @return array of attributes
-     * @throws DukeException if check fails
+     * @param input user input of attributes.
+     * @return array of attributes.
+     * @throws DukeException if check fails.
      */
     private String[] checkAndSplitAttributes(String input) throws DukeException {
         ArrayList<String> attributes = new ArrayList<>();
@@ -70,9 +74,9 @@ public enum TaskType {
 
     /**
      * Returns created task from String input.
-     * @param input attributes from user input of format [Desc] | [isDone] | [other attribute]
-     * @return Created task
-     * @throws DukeException If input check fails
+     * @param input attributes from user input of format [Desc] [other attributes].
+     * @return Created task.
+     * @throws DukeException If input check fails.
      */
     public Task commandToTask(String input) throws DukeException {
         String[] attributes = checkAndSplitAttributes(input);
@@ -111,7 +115,7 @@ public enum TaskType {
     /**
      * Returns String output of tasks in format to save in file.
      * @param task duke.task.Task to output string
-     * @return String of format [Type] | [Desc] | [isDone] | [other attribute]
+     * @return String of format [Type] [Desc] [other attribute] [isDone]
      * @throws DukeException If unknown type
      */
     public String taskToString(Task task) throws DukeException {

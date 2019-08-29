@@ -7,15 +7,15 @@ import duke.util.TaskType;
  */
 public class Todo extends Task {
     /**
-     * Constructor for duke.task.Todo.
-     * @param desc duke.task.Task description.
+     * Constructor for Todo.
+     * @param desc Task description.
      */
     public Todo(String desc) {
         super(desc);
     }
 
     /**
-     * Returns duke.util.TaskType.TODO.
+     * Returns TaskType.TODO.
      * @return Type TODO.
      */
     public TaskType getType() {
