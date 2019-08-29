@@ -5,7 +5,15 @@ import duke.task.Task;
 import duke.util.TaskList;
 import duke.util.Ui;
 
+/**
+ * Command to list tasks in list.
+ */
 public class ListCommand extends Command {
+    /**
+     * Execute listing of tasks.
+     * @param tasks TaskList to obtain tasks from.
+     * @param ui Ui for printing output.
+     */
     public void execute(TaskList tasks, Ui ui) {
         if (tasks.isEmpty()) {
             ui.print("You have no tasks in the list.");

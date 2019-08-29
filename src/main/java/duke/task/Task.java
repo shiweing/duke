@@ -7,7 +7,7 @@ import duke.util.TaskType;
  */
 public abstract class Task {
     /**
-     * duke.task.Task description.
+     * ask description.
      */
     private String desc;
     /**
@@ -16,8 +16,8 @@ public abstract class Task {
     private boolean isDone;
 
     /**
-     * Constructor for duke.task.Task.
-     * @param desc duke.task.Task description.
+     * Constructor for Task.
+     * @param desc Task description.
      */
     Task(String desc) {
         this.desc = desc.strip();
@@ -26,7 +26,7 @@ public abstract class Task {
 
     /**
      * Return task description.
-     * @return duke.task.Task description.
+     * @return Task description.
      */
     public String getDesc() {
         return desc;
@@ -47,6 +47,10 @@ public abstract class Task {
         this.isDone = true;
     }
 
+    /**
+     * Abstract method child class have to implement which returns type of task.
+     * @return TaskType
+     */
     public abstract TaskType getType();
 
     @Override

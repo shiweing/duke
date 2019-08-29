@@ -1,5 +1,8 @@
 package duke.util;
 
+/**
+ * Error Enums.
+ */
 public enum Error {
     DONE("OOPS!!! Please enter a valid task number.\n" +
             "   Usage: done [task no.]"),
@@ -21,12 +24,23 @@ public enum Error {
             "   Usage: event [event description] /at [event time]"),
     DEFAULT("OOPS!!! I'm sorry, but I don't know what that means :-(");
 
+    /**
+     * Error string for each error.
+     */
     private String errorString;
 
+    /**
+     * Constructor of Error.
+     * @param errorString
+     */
     Error(String errorString) {
         this.errorString = errorString;
     }
 
+    /**
+     * Return error string by enum.
+     * @return
+     */
     public String getErrorString() {
         return this.errorString;
     }
