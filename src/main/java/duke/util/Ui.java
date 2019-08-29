@@ -37,9 +37,9 @@ public class Ui {
      * @param task duke.task.Task added.
      */
     public void printAddAlert(Task task, int listSize) {
-        print(formatSuccess(String.format("Got it. I've added this task:%n" +
-                "\t%s%n" +
-                "Now you have %d tasks in the list.",
+        print(formatSuccess(String.format("Got it. I've added this task:%n"
+                        + "\t%s%n"
+                        + "Now you have %d tasks in the list.",
                 task, listSize)));
     }
 

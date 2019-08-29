@@ -17,6 +17,7 @@ public class DoneCommand extends Command {
             throw new DukeException(Error.DONE.getErrorString());
         }
     }
+
     @Override
     public void execute(TaskList tasks, Ui ui) throws DukeException {
         if (taskId >= tasks.size()) {
