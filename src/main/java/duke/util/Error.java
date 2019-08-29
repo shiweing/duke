@@ -5,6 +5,8 @@ public enum Error {
             "   Usage: done [task no.]"),
     DELETE("OOPS!!! Please enter a valid task number.\n" +
             "   Usage: delete [task no.]"),
+    FIND("OOPS!! Please enter a valid keyword.\n"
+            + "   Usage: find [keyword]"),
     TODO("OOPS!!! The description of a todo cannot be empty.\n" +
             "   Usage: todo [task description]"),
     DEADLINE("OOPS!!! The description of a deadline task cannot be empty.\n" +

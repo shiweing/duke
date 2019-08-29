@@ -26,6 +26,8 @@ public class Parser {
                     return new DoneCommand(inputArr[1]);
                 case "delete":
                     return new DeleteCommand(inputArr[1]);
+                case "find":
+                    return new FindCommand(inputArr[1]);
                 case "todo":
                 case "deadline":
                 case "event":
