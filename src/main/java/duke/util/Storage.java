@@ -32,8 +32,8 @@ public class Storage {
                     String taskType = taskInput[0].strip().toUpperCase();
 
                     String[] attributes = taskInput[1].split(" /done ");
-                    if (attributes.length < 2 ||
-                            (!attributes[1].strip().equals("true") && !attributes[1].strip().equals("false"))) {
+                    if (attributes.length < 2
+                            || (!attributes[1].strip().equals("true") && !attributes[1].strip().equals("false"))) {
                         throw new DukeException("Invalid input: " + input);
                     }
 

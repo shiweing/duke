@@ -42,9 +42,9 @@ public class DeleteCommand extends Command {
         }
 
         Task task = tasks.delete(taskId);
-        ui.print(String.format("Noted. I've removed this task:%n" +
-                        "\t%s%n" +
-                        "Now you have %d tasks in the list",
+        ui.print(String.format("Noted. I've removed this task:%n"
+                        + "\t%s%n"
+                        + "Now you have %d tasks in the list",
                 task, tasks.size()));
     }
 

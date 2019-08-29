@@ -120,19 +120,19 @@ public enum TaskType {
      */
     public String taskToString(Task task) throws DukeException {
         switch (this) {
-            case TODO:
-                Todo todo = (Todo) task;
-                return String.format("%s %s /done %b\n", this.toString(), todo.getDesc(), todo.isDone());
-            case DEADLINE:
-                Deadline deadline = (Deadline) task;
-                return String.format("%s %s /by %s /done %b\n",
-                        this.toString(), deadline.getDesc(), dateFormat.format(deadline.getBy()), deadline.isDone());
-            case EVENT:
-                Event event = (Event) task;
-                return String.format("%s %s /at %s /done %b\n",
-                        this.toString(), event.getDesc(), dateFormat.format(event.getAt()), event.isDone());
-            default:
-                throw new DukeException("Unknown type: " + this);
+        case TODO:
+            Todo todo = (Todo) task;
+            return String.format("%s %s /done %b\n", this.toString(), todo.getDesc(), todo.isDone());
+        case DEADLINE:
+            Deadline deadline = (Deadline) task;
+            return String.format("%s %s /by %s /done %b\n",
+                    this.toString(), deadline.getDesc(), dateFormat.format(deadline.getBy()), deadline.isDone());
+        case EVENT:
+            Event event = (Event) task;
+            return String.format("%s %s /at %s /done %b\n",
+                    this.toString(), event.getDesc(), dateFormat.format(event.getAt()), event.isDone());
+        default:
+            throw new DukeException("Unknown type: " + this);
         }
     }
 }
