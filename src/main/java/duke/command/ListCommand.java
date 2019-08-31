@@ -10,7 +10,7 @@ import duke.util.Ui;
  */
 public class ListCommand extends Command {
     /**
-     * Execute listing of tasks.
+     * Executes listing of tasks.
      * @param tasks TaskList to obtain tasks from.
      * @param ui Ui for printing output.
      */

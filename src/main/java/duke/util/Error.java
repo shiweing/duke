@@ -40,7 +40,7 @@ public enum Error {
     }
 
     /**
-     * Return error string by enum.
+     * Returns error string by enum.
      * @return
      */
     public String getErrorString() {

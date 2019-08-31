@@ -30,7 +30,7 @@ public class DoneCommand extends Command {
     }
 
     /**
-     * Execute marking task as done.
+     * Executes marking task as done.
      * @param tasks TaskList to obtain task from.
      * @param ui Ui for printing output.
      * @throws DukeException if task id larger than index in list.

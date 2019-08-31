@@ -21,7 +21,7 @@ public class TaskList {
     }
 
     /**
-     * Return if list is empty.
+     * Returns if list is empty.
      * @return true if list is empty, false is list is not empty.
      */
     public boolean isEmpty() {
@@ -45,7 +45,7 @@ public class TaskList {
     }
 
     /**
-     * Add task to list.
+     * Adds task to list.
      * @param task Task to add.
      */
     public void add(Task task) {
@@ -53,7 +53,7 @@ public class TaskList {
     }
 
     /**
-     * Remove task from list.
+     * Removes task from list.
      * @param taskId Task id of task to delete from list.
      * @return Deleted task.
      * @throws IndexOutOfBoundsException if task id provided is not within list index.
@@ -63,7 +63,7 @@ public class TaskList {
     }
 
     /**
-     * Mark task as done.
+     * Marks task as done.
      * @param taskId Task id of task to mark as done.
      * @return Task marked as done.
      * @throws IndexOutOfBoundsException if task id provided is not within list index.

@@ -1,7 +1,7 @@
 package duke.util;
 
 /**
- * Represent an Exception thrown by the application.
+ * Represents an Exception thrown by the application.
  */
 public class DukeException extends Exception {
     /**
@@ -13,7 +13,7 @@ public class DukeException extends Exception {
     }
 
     /**
-     * Return exception message.
+     * Returns exception message.
      * @return exception message.
      */
     @Override

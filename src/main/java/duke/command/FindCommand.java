@@ -22,7 +22,7 @@ public class FindCommand extends Command {
     }
 
     /**
-     * Execute find command to find tasks matching keywords.
+     * Executes find command to find tasks matching keywords.
      * @param tasks TaskList to find tasks from.
      * @param ui Ui for printing output.
      */

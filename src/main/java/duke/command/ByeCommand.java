@@ -10,7 +10,7 @@ import duke.util.Ui;
  */
 public class ByeCommand extends Command {
     /**
-     * Execute exit command and saving leftover tasks to hard drive.
+     * Executes exit command and saving leftover tasks to hard drive.
      * @param tasks TaskList to add task to.
      * @param ui Ui for printing output.
      * @throws DukeException from Storage save().

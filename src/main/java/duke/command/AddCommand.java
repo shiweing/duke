@@ -25,7 +25,7 @@ public class AddCommand extends Command {
     }
 
     /**
-     * Execute adding of task to list.
+     * Executes adding of task to list.
      * @param tasks TaskList to add task to.
      * @param ui Ui for printing output.
      * @throws DukeException from TaskType commandToTask().

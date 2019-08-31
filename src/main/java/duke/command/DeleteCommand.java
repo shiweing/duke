@@ -30,7 +30,7 @@ public class DeleteCommand extends Command {
     }
 
     /**
-     * Execute deleting of task from list.
+     * Executes deleting of task from list.
      * @param tasks TaskList to delete task from.
      * @param ui Ui for printing output.
      * @throws DukeException if task id larger than index in list.

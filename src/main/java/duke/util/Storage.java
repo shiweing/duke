@@ -53,7 +53,7 @@ public class Storage {
     }
 
     /**
-     * Save tasks to a text file.
+     * Saves tasks to a text file.
      * @param list ArrayList to save tasks from.
      */
     public static void save(TaskList list, Ui ui) throws DukeException {

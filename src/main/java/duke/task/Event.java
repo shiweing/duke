@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Represent an event.
+ * Represents an event.
  */
 public class Event extends Task {
     /**
@@ -25,7 +25,7 @@ public class Event extends Task {
     }
 
     /**
-     * Return event timing.
+     * Returns event timing.
      * @return Event timing.
      */
     public Date getAt() {

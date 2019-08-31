@@ -17,14 +17,14 @@ public class Ui {
     private Scanner scanner = new Scanner(System.in);
 
     /**
-     * Output greeting at launch of application.
+     * Outputs greeting at launch of application.
      */
     public void greet() {
         print("Hello! I'm Duke\nWhat can I do for you?");
     }
 
     /**
-     * Get input from user.
+     * Gets input from user.
      * @return User input string.
      */
     public String readCommand() {
@@ -32,7 +32,7 @@ public class Ui {
     }
 
     /**
-     * Format error to be printed in red.
+     * Formats error to be printed in red.
      * @param output Error to be printed.
      * @return Formatted error.
      */
@@ -41,7 +41,7 @@ public class Ui {
     }
 
     /**
-     * Format alert to be printed in green.
+     * Formats alert to be printed in green.
      * @param output Output to be printed.
      * @return Formatted output.
      */
@@ -61,7 +61,7 @@ public class Ui {
     }
 
     /**
-     * Print error messages.
+     * Prints error messages.
      * @param output Error message.
      */
     public void printError(String output) {

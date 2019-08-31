@@ -25,7 +25,7 @@ public class Deadline extends Task {
     }
 
     /**
-     * Return deadline of task.
+     * Returns deadline of task.
      * @return Task deadline.
      */
     public Date getBy() {
@@ -33,7 +33,7 @@ public class Deadline extends Task {
     }
 
     /**
-     * Return deadline of task in String format "dd MMM yyyy hh:mm aa".
+     * Returns deadline of task in String format "dd MMM yyyy hh:mm aa".
      * @return Task deadline in String
      */
     public String getByString() {
