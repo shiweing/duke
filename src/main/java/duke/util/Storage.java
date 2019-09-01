@@ -18,7 +18,7 @@ public class Storage {
      * Loads task from file.
      * @param list ArrayList to load tasks into.
      */
-    public static void load(TaskList list, Ui ui) throws DukeException {
+    public static void load(TaskList list) {
         try {
             Scanner s = new Scanner(file);
             StringBuilder strBui = new StringBuilder();
@@ -46,9 +46,9 @@ public class Storage {
                 }
             }
 
-            ui.print(strBui.toString());
+            System.out.println(strBui.toString());
         } catch (FileNotFoundException e) {
-            throw new DukeException("File no found: " + file.getAbsolutePath());
+            System.out.println("File not found: " + file.getAbsolutePath());
         }
     }
 
@@ -56,13 +56,13 @@ public class Storage {
      * Saves tasks to a text file.
      * @param list ArrayList to save tasks from.
      */
-    public static void save(TaskList list, Ui ui) throws DukeException {
+    public static void save(TaskList list) {
         if (list.isEmpty()) {
             return;
         }
 
         try {
-            ui.print("Saving tasks to " + file.getAbsolutePath() + "...");
+            System.out.println("Saving tasks to " + file.getAbsolutePath() + "...");
             file.getParentFile().mkdirs();
             file.createNewFile();
 
@@ -72,8 +72,8 @@ public class Storage {
             }
             fw.close();
 
-        } catch (IOException e) {
-            throw new DukeException("Error writing to file.");
+        } catch (IOException | DukeException e) {
+            System.out.println("Error writing to file.");
         }
     }
 }

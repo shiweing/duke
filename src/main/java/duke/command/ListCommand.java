@@ -1,9 +1,7 @@
 package duke.command;
 
 import duke.task.Task;
-
 import duke.util.TaskList;
-import duke.util.Ui;
 
 /**
  * Command to list tasks in list.
@@ -12,11 +10,10 @@ public class ListCommand extends Command {
     /**
      * Executes listing of tasks.
      * @param tasks TaskList to obtain tasks from.
-     * @param ui Ui for printing output.
      */
-    public void execute(TaskList tasks, Ui ui) {
+    public String execute(TaskList tasks) {
         if (tasks.isEmpty()) {
-            ui.print("You have no tasks in the list.");
+            return "You have no tasks in the list.";
         } else {
             int index = 1;
             StringBuilder strbui = new StringBuilder();
@@ -26,7 +23,7 @@ public class ListCommand extends Command {
                 index++;
             }
 
-            ui.print(strbui.deleteCharAt(strbui.length() - 1).toString());
+            return strbui.deleteCharAt(strbui.length() - 2).toString();
         }
     }
 }
