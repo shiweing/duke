@@ -1,11 +1,9 @@
 package duke.command;
 
 import duke.task.Task;
-
 import duke.util.DukeException;
 import duke.util.TaskList;
 import duke.util.TaskType;
-import duke.util.Ui;
 
 /**
  * Command that adds task to the list.
@@ -27,14 +25,16 @@ public class AddCommand extends Command {
     /**
      * Executes adding of task to list.
      * @param tasks TaskList to add task to.
-     * @param ui Ui for printing output.
      * @throws DukeException from TaskType commandToTask().
      */
     @Override
-    public void execute(TaskList tasks, Ui ui) throws DukeException {
+    public String execute(TaskList tasks) throws DukeException {
         Task task = TaskType.valueOf(taskType.toUpperCase()).commandToTask(attributes);
         tasks.add(task);
 
-        ui.printAddAlert(task, tasks.size());
+        return String.format("Got it. I've added this task:%n"
+                        + "\t%s%n"
+                        + "Now you have %d tasks in the list.",
+                task, tasks.size());
     }
 }

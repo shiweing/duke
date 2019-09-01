@@ -2,7 +2,6 @@ package duke.command;
 
 import duke.task.Task;
 import duke.util.TaskList;
-import duke.util.Ui;
 
 /**
  * Command to find tasks related to keyword.
@@ -24,9 +23,8 @@ public class FindCommand extends Command {
     /**
      * Executes find command to find tasks matching keywords.
      * @param tasks TaskList to find tasks from.
-     * @param ui Ui for printing output.
      */
-    public void execute(TaskList tasks, Ui ui) {
+    public String execute(TaskList tasks) {
         int index = 1;
         StringBuilder strbui = new StringBuilder();
 
@@ -43,6 +41,6 @@ public class FindCommand extends Command {
             strbui.insert(0, "Here are the matching tasks in your list:\n");
         }
 
-        ui.print(strbui.deleteCharAt(strbui.length() - 1).toString());
+        return strbui.deleteCharAt(strbui.length() - 2).toString();
     }
 }
