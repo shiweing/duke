@@ -21,7 +21,7 @@ public class Parser {
      * @throws DukeException if user command is invalid.
      */
     public static Command parse(String input) throws DukeException {
-        String[] inputArr = input.split(" ", 2);
+        String[] inputArr = input.strip().split(" ", 2);
 
         if (inputArr.length == 1) {
             switch (inputArr[0]) {

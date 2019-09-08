@@ -37,4 +37,13 @@ public class AddCommand extends Command {
                         + "Now you have %d tasks in the list.",
                 task, tasks.size());
     }
+
+    /**
+     * Returns true for Duke to save tasks to txt file.
+     * @return true.
+     */
+    @Override
+    public boolean requireSave() {
+        return true;
+    }
 }

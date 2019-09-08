@@ -37,13 +37,18 @@ public class Duke  {
             Command c = Parser.parse(input);
             String response = c.execute(tasks);
             isExit = c.isExit();
+
+            if (c.requireSave()) {
+                writeTasksToFile();
+            }
+
             return response;
         } catch (DukeException e) {
             return e.getMessage();
         }
     }
 
-    public void bye() {
+    public void writeTasksToFile() {
         storage.save(tasks);
     }
 }

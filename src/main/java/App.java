@@ -38,10 +38,4 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void stop(){
-        duke.bye();
-        // Save file
-    }
 }
