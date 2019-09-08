@@ -12,13 +12,20 @@ import java.util.Scanner;
  * Handles loading and saving of tasks to hard drive.
  */
 public class Storage {
-    public static File file = new File("data\\duke.txt");
+    private File file;
+
+    /**
+     * Constructor for Storage.
+     */
+    public Storage(String filePath) {
+        file = new File(filePath);
+    }
 
     /**
      * Loads task from file.
      * @param list ArrayList to load tasks into.
      */
-    public static void load(TaskList list) {
+    public void load(TaskList list) {
         try {
             Scanner s = new Scanner(file);
             StringBuilder strBui = new StringBuilder();
@@ -56,15 +63,18 @@ public class Storage {
      * Saves tasks to a text file.
      * @param list ArrayList to save tasks from.
      */
-    public static void save(TaskList list) {
+    public void save(TaskList list) {
         if (list.isEmpty()) {
             return;
         }
 
         try {
             System.out.println("Saving tasks to " + file.getAbsolutePath() + "...");
-            file.getParentFile().mkdirs();
-            file.createNewFile();
+
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
 
             FileWriter fw = new FileWriter(file);
             for (Task task : list.getTasks()) {

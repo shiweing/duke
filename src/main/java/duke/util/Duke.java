@@ -7,16 +7,18 @@ import duke.command.Command;
  */
 public class Duke  {
     private TaskList tasks;
+    private Storage storage;
     private boolean isExit;
 
     /**
      * Constructor for duke.util.Duke.
      */
-    public Duke() {
+    public Duke(String file) {
         tasks = new TaskList();
+        storage = new Storage(file);
 
         // Load data if exist
-        Storage.load(tasks);
+        storage.load(tasks);
     }
 
     public boolean isExit() {
@@ -39,6 +41,6 @@ public class Duke  {
     }
 
     public void bye() {
-        Storage.save(tasks);
+        storage.save(tasks);
     }
 }
