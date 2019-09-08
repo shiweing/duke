@@ -45,4 +45,12 @@ public class DeleteCommand extends Command {
                 task, tasks.size());
     }
 
+    /**
+     * Returns true for Duke to save tasks to txt file.
+     * @return true.
+     */
+    @Override
+    public boolean requireSave() {
+        return true;
+    }
 }

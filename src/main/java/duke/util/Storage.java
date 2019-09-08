@@ -12,13 +12,20 @@ import java.util.Scanner;
  * Handles loading and saving of tasks to hard drive.
  */
 public class Storage {
-    public static File file = new File("data\\duke.txt");
+    private File file;
+
+    /**
+     * Constructor for Storage.
+     */
+    public Storage(String filePath) {
+        file = new File(filePath);
+    }
 
     /**
      * Loads task from file.
      * @param list ArrayList to load tasks into.
      */
-    public static void load(TaskList list) {
+    public void load(TaskList list) {
         try {
             Scanner s = new Scanner(file);
             StringBuilder strBui = new StringBuilder();
@@ -32,13 +39,16 @@ public class Storage {
                     String taskType = taskInput[0].strip().toUpperCase();
 
                     String[] attributes = taskInput[1].split(" /done ");
+                    String taskAttr = attributes[0]; // task attributes
+                    String isDoneBool = attributes[1].strip(); // task isDone boolean
+
                     if (attributes.length < 2
-                            || (!attributes[1].strip().equals("true") && !attributes[1].strip().equals("false"))) {
+                            || (!isDoneBool.equals("true") && !isDoneBool.equals("false"))) {
                         throw new DukeException("Invalid input: " + input);
                     }
 
                     list.add(TaskType.valueOf(taskType)
-                            .stringToTask(attributes[0], Boolean.parseBoolean(attributes[1].strip())));
+                            .stringToTask(taskAttr, Boolean.parseBoolean(isDoneBool)));
                 } catch (DukeException e) {
                     strBui.append("\n" + e.getMessage());
                 } catch (IllegalArgumentException e) {
@@ -56,15 +66,18 @@ public class Storage {
      * Saves tasks to a text file.
      * @param list ArrayList to save tasks from.
      */
-    public static void save(TaskList list) {
+    public void save(TaskList list) {
         if (list.isEmpty()) {
             return;
         }
 
         try {
             System.out.println("Saving tasks to " + file.getAbsolutePath() + "...");
-            file.getParentFile().mkdirs();
-            file.createNewFile();
+
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
 
             FileWriter fw = new FileWriter(file);
             for (Task task : list.getTasks()) {

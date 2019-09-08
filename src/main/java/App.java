@@ -1,5 +1,5 @@
 import duke.gui.Gui;
-import duke.util.Duke;
+import duke.logic.Duke;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private Duke duke = new Duke();
+    private Duke duke = new Duke("data\\duke.txt");
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -37,11 +37,5 @@ public class App extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void stop(){
-        duke.bye();
-        // Save file
     }
 }

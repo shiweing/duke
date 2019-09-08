@@ -45,4 +45,13 @@ public class DoneCommand extends Command {
             throw new DukeException(Error.DONE.getErrorString());
         }
     }
+
+    /**
+     * Returns true for Duke to save tasks to txt file.
+     * @return true.
+     */
+    @Override
+    public boolean requireSave() {
+        return true;
+    }
 }

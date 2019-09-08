@@ -1,22 +1,27 @@
-package duke.util;
+package duke.logic;
 
 import duke.command.Command;
+import duke.util.DukeException;
+import duke.util.Storage;
+import duke.util.TaskList;
 
 /**
  * Main class of project.
  */
 public class Duke  {
     private TaskList tasks;
+    private Storage storage;
     private boolean isExit;
 
     /**
      * Constructor for duke.util.Duke.
      */
-    public Duke() {
+    public Duke(String file) {
         tasks = new TaskList();
+        storage = new Storage(file);
 
         // Load data if exist
-        Storage.load(tasks);
+        storage.load(tasks);
     }
 
     public boolean isExit() {
@@ -32,13 +37,18 @@ public class Duke  {
             Command c = Parser.parse(input);
             String response = c.execute(tasks);
             isExit = c.isExit();
+
+            if (c.requireSave()) {
+                writeTasksToFile();
+            }
+
             return response;
         } catch (DukeException e) {
             return e.getMessage();
         }
     }
 
-    public void bye() {
-        Storage.save(tasks);
+    public void writeTasksToFile() {
+        storage.save(tasks);
     }
 }

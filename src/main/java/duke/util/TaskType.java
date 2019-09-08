@@ -30,17 +30,18 @@ public enum TaskType {
     private String[] checkAndSplitAttributes(String input) throws DukeException {
         ArrayList<String> attributes = new ArrayList<>();
         String[] attrArr;
+        input = input.strip();
 
         switch (this) {
         case TODO:
-            if (input.strip().isEmpty()) {
+            if (input.isEmpty()) {
                 throw new DukeException(Error.TODO.getErrorString());
             }
-            attributes.add(input.strip());
+            attributes.add(input);
             break;
 
         case DEADLINE:
-            if (input.strip().isEmpty()) {
+            if (input.isEmpty()) {
                 throw new DukeException(Error.DEADLINE.getErrorString());
             }
             // attrArr[0]: task desc | attrArr[1]: deadline
@@ -53,7 +54,7 @@ public enum TaskType {
             break;
 
         case EVENT:
-            if (input.strip().isEmpty()) {
+            if (input.isEmpty()) {
                 throw new DukeException(Error.EVENT.getErrorString());
             }
             // attrArr[0]: task desc | attrArr[1]: eventTime
@@ -83,11 +84,11 @@ public enum TaskType {
 
         switch (this) {
         case TODO:
-            assert attributes.length == 1: Error.TODO.getErrorString();
+            // attributes[0]: task description
             return new Todo(attributes[0]);
         case DEADLINE:
             try {
-                assert attributes.length == 2: Error.DEADLINE.getErrorString();
+                // attributes[1]: deadline string
                 Date deadline = dateFormat.parse(attributes[1]);
                 return new Deadline(attributes[0], deadline);
             } catch (ParseException e) {
@@ -95,6 +96,7 @@ public enum TaskType {
             }
         case EVENT:
             try {
+                // attributes[1]: event time string
                 Date eventTime = dateFormat.parse(attributes[1]);
                 return new Event(attributes[0], eventTime);
             } catch (ParseException e) {
