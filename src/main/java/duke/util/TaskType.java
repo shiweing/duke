@@ -83,9 +83,11 @@ public enum TaskType {
 
         switch (this) {
         case TODO:
+            assert attributes.length == 1: Error.TODO.getErrorString();
             return new Todo(attributes[0]);
         case DEADLINE:
             try {
+                assert attributes.length == 2: Error.DEADLINE.getErrorString();
                 Date deadline = dateFormat.parse(attributes[1]);
                 return new Deadline(attributes[0], deadline);
             } catch (ParseException e) {
@@ -106,7 +108,7 @@ public enum TaskType {
     /**
      * Returns created task from String input.
      * @param input attributes from user input of format [Desc] [other attributes].
-     * @param isDone indicator for whether the taskis done.
+     * @param isDone indicator for whether the task is done.
      * @return Created task.
      * @throws DukeException If input check fails.
      */
