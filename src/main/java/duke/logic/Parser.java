@@ -22,9 +22,10 @@ public class Parser {
      */
     public static Command parse(String input) throws DukeException {
         String[] inputArr = input.strip().split(" ", 2);
+        String command = inputArr[0];
 
         if (inputArr.length == 1) {
-            switch (inputArr[0]) {
+            switch (command) {
             // List
             case "list":
                 return new ListCommand();
@@ -32,24 +33,30 @@ public class Parser {
                 return new ByeCommand();
             default:
                 try {
-                    throw new DukeException(Error.valueOf(inputArr[0].strip().toUpperCase()).getErrorString());
+                    // Throw exception based on command that require attributes (done, delete etc.)
+                    String errorType = command.strip().toUpperCase();
+                    throw new DukeException(Error.valueOf(errorType).getErrorString());
                 } catch (IllegalArgumentException e) {
+                    // Throw exception for invalid command string
                     throw new DukeException(Error.DEFAULT.getErrorString());
                 }
             }
         } else {
-            switch (inputArr[0]) {
+            String commandAttr = inputArr[1];
+
+            switch (command) {
             case "done":
-                return new DoneCommand(inputArr[1]);
+                return new DoneCommand(commandAttr);
             case "delete":
-                return new DeleteCommand(inputArr[1]);
+                return new DeleteCommand(commandAttr);
             case "find":
-                return new FindCommand(inputArr[1]);
+                return new FindCommand(commandAttr);
             case "todo":
             case "deadline":
             case "event":
-                return new AddCommand(inputArr[0], inputArr[1]);
+                return new AddCommand(command, commandAttr);
             default:
+                // Throw exception for invalid command string
                 throw new DukeException(Error.DEFAULT.getErrorString());
             }
         }
