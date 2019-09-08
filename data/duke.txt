@@ -1,3 +1,9 @@
 TODO read book /done true
 DEADLINE borrow book /by 21/09/2019 1230 /done false
 EVENT CCA meeting /at 22/09/2019 0920 /done false
+TODO a /done false
+TODO b /done false
+TODO c /done false
+TODO d /done false
+TODO f /done false
+TODO e /done false
