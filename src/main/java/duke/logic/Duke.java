@@ -1,6 +1,9 @@
-package duke.util;
+package duke.logic;
 
 import duke.command.Command;
+import duke.util.DukeException;
+import duke.util.Storage;
+import duke.util.TaskList;
 
 /**
  * Main class of project.
