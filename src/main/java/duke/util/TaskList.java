@@ -47,9 +47,10 @@ public class TaskList {
     /**
      * Adds task to list.
      * @param task Task to add.
+     * @return true if task added, false if task not added.
      */
-    public void add(Task task) {
-        list.add(task);
+    public boolean add(Task task) {
+        return list.add(task);
     }
 
     /**
@@ -71,6 +72,7 @@ public class TaskList {
     public Task done(int taskId) throws IndexOutOfBoundsException {
         Task task = list.get(taskId);
         task.done();
+        assert task.isDone(): "Task not marked done successfully";
         return task;
     }
 }

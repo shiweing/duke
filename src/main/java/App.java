@@ -27,7 +27,7 @@ public class App extends Application {
             Scene scene = new Scene(ap);
 
             stage.setScene(scene);
-            stage.setTitle("duke.util.Duke");
+            stage.setTitle("Duke");
             stage.setResizable(false);
             stage.setHeight(620);
             stage.setWidth(700);
