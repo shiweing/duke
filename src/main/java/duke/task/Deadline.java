@@ -33,6 +33,14 @@ public class Deadline extends Task {
     }
 
     /**
+     * Update deadline for task.
+     * @param by New deadline to update.
+     */
+    public void setBy(Date by) {
+        this.by = by;
+    }
+
+    /**
      * Returns deadline of task in String format "dd MMM yyyy hh:mm aa".
      * @return Task deadline in String
      */

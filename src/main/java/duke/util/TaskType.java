@@ -45,7 +45,7 @@ public enum TaskType {
                 throw new DukeException(Error.DEADLINE.getErrorString());
             }
             // attrArr[0]: task desc | attrArr[1]: deadline
-            attrArr = input.split(" /by ");
+            attrArr = input.split(" --by ");
             if (attrArr.length < 2) {
                 throw new DukeException(Error.DEADLINE_BY.getErrorString());
             }
@@ -58,7 +58,7 @@ public enum TaskType {
                 throw new DukeException(Error.EVENT.getErrorString());
             }
             // attrArr[0]: task desc | attrArr[1]: eventTime
-            attrArr = input.split(" /at ");
+            attrArr = input.split(" --at ");
             if (attrArr.length < 2) {
                 throw new DukeException(Error.EVENT_AT.getErrorString());
             }
@@ -133,14 +133,14 @@ public enum TaskType {
         switch (this) {
         case TODO:
             Todo todo = (Todo) task;
-            return String.format("%s %s /done %b\n", this.toString(), todo.getDesc(), todo.isDone());
+            return String.format("%s %s --done %b\n", this.toString(), todo.getDesc(), todo.isDone());
         case DEADLINE:
             Deadline deadline = (Deadline) task;
-            return String.format("%s %s /by %s /done %b\n",
+            return String.format("%s %s --by %s --done %b\n",
                     this.toString(), deadline.getDesc(), dateFormat.format(deadline.getBy()), deadline.isDone());
         case EVENT:
             Event event = (Event) task;
-            return String.format("%s %s /at %s /done %b\n",
+            return String.format("%s %s --at %s --done %b\n",
                     this.toString(), event.getDesc(), dateFormat.format(event.getAt()), event.isDone());
         default:
             throw new DukeException("Unknown type: " + this);

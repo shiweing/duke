@@ -33,6 +33,14 @@ public class Event extends Task {
     }
 
     /**
+     * Updates event time.
+     * @param at New event time to update.
+     */
+    public void setAt(Date at) {
+        this.at = at;
+    }
+
+    /**
      * Returns event timing in String format "dd MMM yyyy hh:mm aa".
      * @return Event timing in String
      */

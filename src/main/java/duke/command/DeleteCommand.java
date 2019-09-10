@@ -34,15 +34,15 @@ public class DeleteCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks) throws DukeException {
-        if (taskId >= tasks.size()) {
+        try {
+            Task task = tasks.delete(taskId);
+            return String.format("Noted. I've removed this task:%n"
+                            + "\t%s%n"
+                            + "Now you have %d tasks in the list",
+                    task, tasks.size());
+        } catch (IndexOutOfBoundsException e) {
             throw new DukeException(Error.DELETE.getErrorString());
         }
-
-        Task task = tasks.delete(taskId);
-        return String.format("Noted. I've removed this task:%n"
-                        + "\t%s%n"
-                        + "Now you have %d tasks in the list",
-                task, tasks.size());
     }
 
     /**

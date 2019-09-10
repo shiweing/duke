@@ -44,6 +44,10 @@ public class TaskList {
         return list.size();
     }
 
+    public Task get(int taskId) throws IndexOutOfBoundsException {
+        return list.get(taskId);
+    }
+
     /**
      * Adds task to list.
      * @param task Task to add.

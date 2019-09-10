@@ -35,17 +35,21 @@ public class Storage {
             while (s.hasNextLine()) {
                 String input = s.nextLine();
                 try {
+                    // split into task type and task attributes
                     String[] taskInput = input.split(" ", 2);
                     String taskType = taskInput[0].strip().toUpperCase();
 
-                    String[] attributes = taskInput[1].split(" /done ");
-                    String taskAttr = attributes[0]; // task attributes
-                    String isDoneBool = attributes[1].strip(); // task isDone boolean
+                    // split into other task attributes and isDone attribute
+                    String[] attributes = taskInput[1].split(" --done ");
 
                     if (attributes.length < 2
-                            || (!isDoneBool.equals("true") && !isDoneBool.equals("false"))) {
+                            || (!attributes[1].strip().equals("true")
+                            && !attributes[1].strip().equals("false"))) {
                         throw new DukeException("Invalid input: " + input);
                     }
+
+                    String taskAttr = attributes[0]; // task attributes
+                    String isDoneBool = attributes[1].strip(); // task isDone boolean
 
                     list.add(TaskType.valueOf(taskType)
                             .stringToTask(taskAttr, Boolean.parseBoolean(isDoneBool)));

@@ -7,6 +7,8 @@ import duke.command.DeleteCommand;
 import duke.command.DoneCommand;
 import duke.command.FindCommand;
 import duke.command.ListCommand;
+import duke.command.UpdateCommand;
+
 import duke.util.DukeException;
 import duke.util.Error;
 
@@ -22,7 +24,7 @@ public class Parser {
      */
     public static Command parse(String input) throws DukeException {
         String[] inputArr = input.strip().split(" ", 2);
-        String command = inputArr[0];
+        String command = inputArr[0].toLowerCase();
 
         if (inputArr.length == 1) {
             switch (command) {
@@ -55,6 +57,8 @@ public class Parser {
             case "deadline":
             case "event":
                 return new AddCommand(command, commandAttr);
+            case "update":
+                return new UpdateCommand(commandAttr);
             default:
                 // Throw exception for invalid command string
                 throw new DukeException(Error.DEFAULT.getErrorString());

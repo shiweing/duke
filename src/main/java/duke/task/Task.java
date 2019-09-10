@@ -33,6 +33,14 @@ public abstract class Task {
     }
 
     /**
+     * Updates the description of task.
+     * @param desc New task description to update.
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    /**
      * Returns if task is done.
      * @return True if done, false if not.
      */

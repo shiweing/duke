@@ -34,10 +34,6 @@ public class DoneCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks) throws DukeException {
-        if (taskId >= tasks.size()) {
-            throw new DukeException(Error.DONE.getErrorString());
-        }
-
         try {
             Task task = tasks.done(taskId);
             return String.format("Nice! I\'ve marked this task as done:%n   %s", task);
