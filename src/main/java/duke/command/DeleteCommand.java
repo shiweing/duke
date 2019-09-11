@@ -5,6 +5,8 @@ import duke.util.DukeException;
 import duke.util.Error;
 import duke.util.TaskList;
 
+import java.util.ArrayList;
+
 /**
  * Command that deletes tasks frm list.
  */
@@ -12,8 +14,8 @@ public class DeleteCommand extends Command {
     /**
      * Id of task to delete.
      */
-    private int taskId;
-
+//    private int taskId;
+    private ArrayList<Integer> taskIds;
     /**
      * Constructor for DeleteCommand.
      * @param attribute Task id of task.
@@ -21,7 +23,15 @@ public class DeleteCommand extends Command {
      */
     public DeleteCommand(String attribute) throws DukeException {
         try {
-            taskId = Integer.parseInt(attribute.strip()) - 1;
+            taskIds = new ArrayList<>();
+            // Split into multiple task id strings
+            String[] taskIdStrs = attribute.strip().split(" ");
+
+            for (String taskIdStr : taskIdStrs) {
+                System.out.println(taskIdStr);
+                int taskId = Integer.parseInt(taskIdStr.strip()) - 1;
+                this.taskIds.add(taskId);
+            }
         } catch (NumberFormatException e) {
             throw new DukeException(Error.DELETE.getErrorString());
         }
@@ -34,15 +44,45 @@ public class DeleteCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks) throws DukeException {
-        if (taskId >= tasks.size()) {
-            throw new DukeException(Error.DELETE.getErrorString());
+
+        StringBuilder validStrBui = new StringBuilder();
+        StringBuilder invalidStrBui = new StringBuilder();
+
+        for (int taskId : taskIds) {
+            /*if (taskId >= tasks.size()) {
+                throw new DukeException(Error.DELETE.getErrorString() + taskId);
+            }*/
+
+            try {
+                // add deleted task to string builder
+                validStrBui.append(deleteTask(tasks, taskId));
+            } catch (DukeException e) {
+                invalidStrBui.append("\n" + e.getMessage());
+            }
         }
 
-        Task task = tasks.delete(taskId);
-        return String.format("Noted. I've removed this task:%n"
-                        + "\t%s%n"
-                        + "Now you have %d tasks in the list",
-                task, tasks.size());
+
+        if (validStrBui.length() == 0) {
+            // if no tasks were successfully deleted, display error
+            validStrBui = invalidStrBui.deleteCharAt(0);
+        } else {
+            validStrBui.insert(0, "Noted. I've removed these tasks:\n");
+            validStrBui.append(String.format("Now you have %d tasks in the list.", tasks.size()));
+
+            validStrBui.append("\n" + invalidStrBui);
+        }
+
+        return validStrBui.toString();
+    }
+
+    private String deleteTask(TaskList tasks, int taskId) throws DukeException {
+        try {
+            Task task = tasks.delete(taskId);
+
+            return String.format("\t%s%n", task);
+        } catch (IndexOutOfBoundsException e) {
+            throw new DukeException(Error.INVALID_TASK_NUMBER.getErrorString() + (taskId+1));
+        }
     }
 
     /**
