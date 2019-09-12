@@ -38,9 +38,9 @@ public class DoneCommand extends Command {
     }
 
     /**
-     * Executes marking task as done.
+     * Executes marking tasks as done.
      * @param tasks TaskList to obtain task from.
-     * @throws DukeException if task id larger than index in list.
+     * @return String result of command execution.
      */
     @Override
     public String execute(TaskList tasks) {
@@ -72,6 +72,13 @@ public class DoneCommand extends Command {
         return strBui.toString();
     }
 
+    /**
+     * Mark task as done.
+     * @param tasks Tasklist storing tasks.
+     * @param taskId task ID of the task to mark as done.
+     * @return String format of task marked as done.
+     * @throws DukeException if taskId is not within Tasklist index.
+     */
     private String markTaskDone(TaskList tasks, int taskId) throws DukeException {
         try {
             Task task = tasks.done(taskId);

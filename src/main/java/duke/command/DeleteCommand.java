@@ -6,6 +6,7 @@ import duke.util.Error;
 import duke.util.TaskList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Command that deletes tasks frm list.
@@ -35,12 +36,15 @@ public class DeleteCommand extends Command {
                 throw new DukeException(Error.INVALID_TASK_NUMBER.getErrorString() + taskIdStr);
             }
         }
+
+        // Sort in descending order so deleting tasks does not affect the task after
+        Collections.sort(taskIds, Collections.reverseOrder());
     }
 
     /**
-     * Executes deleting of task from list.
+     * Executes deleting of tasks from list.
      * @param tasks TaskList to delete task from.
-     * @throws DukeException if task id larger than index in list.
+     * @return String outcome of the command execution.
      */
     @Override
     public String execute(TaskList tasks) {
@@ -52,7 +56,7 @@ public class DeleteCommand extends Command {
                 // add deleted task to string builder
                 strBui.append("\n" + deleteTask(tasks, taskId));
             } catch (DukeException e) {
-                invalidStrBui.append("\n" + e.getMessage());
+                invalidStrBui.insert(0 ,"\n" + e.getMessage());
             }
         }
 
@@ -62,7 +66,7 @@ public class DeleteCommand extends Command {
         } else {
             // if tasks have been deleted
             strBui.insert(0, "Noted. I've removed these tasks:");
-            strBui.append(String.format("Now you have %d tasks in the list.", tasks.size()));
+            strBui.append(String.format("\nNow you have %d tasks in the list.", tasks.size()));
 
             if (invalidStrBui.length() != 0) {
                 // if there were invalid tasks
@@ -73,6 +77,13 @@ public class DeleteCommand extends Command {
         return strBui.toString();
     }
 
+    /**
+     * Delete task.
+     * @param tasks Tasklist storing tasks.
+     * @param taskId task ID of the task to delete.
+     * @return String format of task deleted.
+     * @throws DukeException if taskId is not within Tasklist index.
+     */
     private String deleteTask(TaskList tasks, int taskId) throws DukeException {
         try {
             Task task = tasks.delete(taskId);
