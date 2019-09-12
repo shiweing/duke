@@ -31,12 +31,9 @@ public class UpdateCommand extends Command {
 
             attributes = inputArr[1].strip();
             // throw exception if attributes not in correct format
-            if (!attributes.contains("/")) {
+            if (!attributes.contains("--")) {
                 throw new DukeException(Error.UPDATE_INVALID_ATTRIBUTES.getErrorString());
             }
-
-//            updates = new ArrayList<>();
-//            addUpdateCommand(attributes);
         } catch (NumberFormatException e) {
             throw new DukeException(Error.UPDATE.getErrorString());
         }

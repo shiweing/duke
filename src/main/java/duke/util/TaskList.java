@@ -64,7 +64,7 @@ public class TaskList {
      * @throws IndexOutOfBoundsException if task id provided is not within list index.
      */
     public Task delete(int taskId) throws IndexOutOfBoundsException {
-        return list.remove(taskId);
+        return list.remove(taskId - 1);
     }
 
     /**
@@ -74,7 +74,7 @@ public class TaskList {
      * @throws IndexOutOfBoundsException if task id provided is not within list index.
      */
     public Task done(int taskId) throws IndexOutOfBoundsException {
-        Task task = list.get(taskId);
+        Task task = list.get(taskId - 1);
         task.done();
         assert task.isDone(): "Task not marked done successfully";
         return task;

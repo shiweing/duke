@@ -4,10 +4,11 @@ package duke.util;
  * Error Enums.
  */
 public enum Error {
-    DONE("OOPS!!! Please enter a valid task number.\n"
+    DONE("OOPS!!! Please enter a task number.\n"
             + "   Usage: done [task no.]"),
-    DELETE("OOPS!!! Please enter a valid task number.\n"
+    DELETE("OOPS!!! Please enter a task number.\n"
             + "   Usage: delete [task no.]"),
+    INVALID_TASK_NUMBER("Invalid task number: "),
     FIND("OOPS!! Please enter a valid keyword.\n"
             + "   Usage: find [keyword]"),
     TODO("OOPS!!! The description of a todo cannot be empty.\n"

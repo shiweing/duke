@@ -39,6 +39,7 @@ public class Storage {
                     String[] taskInput = input.split(" ", 2);
                     String taskType = taskInput[0].strip().toUpperCase();
 
+
                     // split into other task attributes and isDone attribute
                     String[] attributes = taskInput[1].split(" --done ");
 
