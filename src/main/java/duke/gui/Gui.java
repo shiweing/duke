@@ -39,6 +39,7 @@ public class Gui extends AnchorPane {
         greet();
 
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        Platform.runLater(() -> userInput.requestFocus());
     }
 
     public void setDuke(Duke d) {
@@ -49,11 +50,12 @@ public class Gui extends AnchorPane {
         String usage = "Usage:\n"
                 + "list\n"
                 + "todo [task description]\n"
-                + "deadline [task description] /by [deadline]\n"
-                + "event [event description] /at [event time]\n"
+                + "deadline [task description] --by [deadline]\n"
+                + "event [event description] --at [event time]\n"
                 + "find [keyword]\n"
-                + "done [task no.]\n"
-                + "delete [task no.]";
+                + "done [task no...]\n"
+                + "delete [task no...]"
+                + "update [task id] {--desc [task description]} {--by [deadline]} {--at [event time]}  ";
 
         dialogContainer.getChildren().addAll(
                 DialogBox.getDukeDialog("Hello! I'm duke.util.Duke! What can I do for you?\n" + usage, dukeImage, "Duke")
