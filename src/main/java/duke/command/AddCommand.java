@@ -31,7 +31,7 @@ public class AddCommand extends Command {
     public String execute(TaskList tasks) throws DukeException {
         Task task = TaskType.valueOf(taskType.toUpperCase()).commandToTask(attributes);
         boolean taskAdded = tasks.add(task);
-        assert taskAdded == true: "Task not added successfully"; // assert task added
+        assert taskAdded == true : "Task not added successfully"; // assert task added
 
         return String.format("Got it. I've added this task:%n"
                         + "\t%s%n"

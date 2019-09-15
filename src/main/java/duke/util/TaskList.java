@@ -76,7 +76,7 @@ public class TaskList {
     public Task done(int taskId) throws IndexOutOfBoundsException {
         Task task = list.get(taskId - 1);
         task.done();
-        assert task.isDone(): "Task not marked done successfully";
+        assert task.isDone() : "Task not marked done successfully";
         return task;
     }
 }

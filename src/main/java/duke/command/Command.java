@@ -11,7 +11,7 @@ public abstract class Command {
      * Abstract method that child classes have to implement logic of command.
      * @param tasks TaskList to add task to.
      * @return Output of command.
-     * @throws DukeException
+     * @throws DukeException if respective execute commands fail.
      */
     public abstract String execute(TaskList tasks) throws DukeException;
 

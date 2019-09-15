@@ -19,8 +19,8 @@ public class DeleteCommand extends Command {
 
     /**
      * Constructor for DeleteCommand.
-     * @param attribute Task id of task.
-     * @throws DukeException if task id is not an integer.
+     * @param attribute Task ids of tasks to delete.
+     * @throws DukeException if a task id is not an integer.
      */
     public DeleteCommand(String attribute) throws DukeException {
         taskIds = new ArrayList<>();
@@ -56,7 +56,7 @@ public class DeleteCommand extends Command {
                 // add deleted task to string builder
                 strBui.append("\n" + deleteTask(tasks, taskId));
             } catch (DukeException e) {
-                invalidStrBui.insert(0 ,"\n" + e.getMessage());
+                invalidStrBui.insert(0, "\n" + e.getMessage());
             }
         }
 

@@ -10,6 +10,13 @@ public class DateFormatter {
      */
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HHmm");
 
+    /**
+     * Returns Date from date input string.
+     * @param dateString date input satring.
+     * @param errorMsg error message for exception if parsing fails.
+     * @return Date.
+     * @throws DukeException if unable to parse date input string to Date.
+     */
     public static Date parse(String dateString, String errorMsg) throws DukeException {
         try {
             return dateFormat.parse(dateString);
@@ -18,6 +25,11 @@ public class DateFormatter {
         }
     }
 
+    /**
+     * Returns formatted String from Date.
+     * @param date Date to format.
+     * @return formatted date string.
+     */
     public static String format(Date date) {
         return dateFormat.format(date);
     }

@@ -22,6 +22,12 @@ public class DialogBox extends HBox {
     @FXML
     private Label imageLabel;
 
+    /**
+     * Constructoe for DialogBox.
+     * @param text dialog message.
+     * @param img profile picture.
+     * @param imgLabel identity name.
+     */
     public DialogBox(String text, Image img, String imgLabel) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Gui.class.getResource("/view/DialogBox.fxml"));
@@ -48,10 +54,24 @@ public class DialogBox extends HBox {
         this.getChildren().setAll(tmp);
     }
 
+    /**
+     * Returns a DialogBox for user.
+     * @param text input from user.
+     * @param img profile picture of user.
+     * @param imgLabel name of user.
+     * @return user DialogBox.
+     */
     public static DialogBox getUserDialog(String text, Image img, String imgLabel) {
         return new DialogBox(text, img, imgLabel);
     }
 
+    /**
+     * Returns a system DialogBox.
+     * @param text response from system.
+     * @param img profile picture of system.
+     * @param imgLabel name of system.
+     * @return system DialogBox.
+     */
     public static DialogBox getDukeDialog(String text, Image img, String imgLabel) {
         var db = new DialogBox(text, img, imgLabel);
         Node dukeDialog = db.getChildren().get(0);

@@ -18,6 +18,11 @@ public class UpdateCommand extends Command {
     private int taskId;
     private String attributes;
 
+    /**
+     * Constructor for UpdateCommand.
+     * @param input command attributes, include task number and task atributes to update.
+     * @throws DukeException if task number attributes are invalid.
+     */
     public UpdateCommand(String input) throws DukeException {
         try {
             String[] inputArr = input.split(" ", 2);
@@ -82,7 +87,7 @@ public class UpdateCommand extends Command {
         String updateAttr = updateArr[0].strip();
         String updateVal = updateArr[1].strip();
 
-        switch(updateAttr) {
+        switch (updateAttr) {
         case "desc":
             return getUpdateDescMethod(updateVal);
         case "by":

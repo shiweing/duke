@@ -26,6 +26,9 @@ public class Gui extends AnchorPane {
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/Peasant.png"));
     private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/Duke.png"));
 
+    /**
+     * Initialise GUI displayed.
+     */
     @FXML
     public void initialize() {
         sendButton.setOnKeyReleased((event) -> {
@@ -46,6 +49,9 @@ public class Gui extends AnchorPane {
         duke = d;
     }
 
+    /**
+     * Greeting message from system at start up.
+     */
     public void greet() {
         String usage = "Usage:\n"
                 + "list\n"
@@ -58,12 +64,13 @@ public class Gui extends AnchorPane {
                 + "update [task id] {--desc [task description]} {--by [deadline]} {--at [event time]}  ";
 
         dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog("Hello! I'm duke.util.Duke! What can I do for you?\n" + usage, dukeImage, "Duke")
+                DialogBox.getDukeDialog("Hello! I'm duke.util.Duke! What can I do for you?\n" + usage,
+                        dukeImage, "Duke")
         );
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing duke.util.Duke's reply and then appends them to
+     * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
     @FXML
