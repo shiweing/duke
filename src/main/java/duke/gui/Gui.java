@@ -23,8 +23,8 @@ public class Gui extends AnchorPane {
 
     private Duke duke;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/Peasant.png"));
-    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/Duke.png"));
+    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/user.png"));
+    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/duke-normal.png"));
 
     /**
      * Initialise GUI displayed.
@@ -60,7 +60,7 @@ public class Gui extends AnchorPane {
                 + "event [event description] --at [event time]\n"
                 + "find [keyword]\n"
                 + "done [task no...]\n"
-                + "delete [task no...]"
+                + "delete [task no...]\n"
                 + "update [task id] {--desc [task description]} {--by [deadline]} {--at [event time]}  ";
 
         dialogContainer.getChildren().addAll(
@@ -79,7 +79,7 @@ public class Gui extends AnchorPane {
         String response = duke.getResponse(input);
 
         dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, userImage, "Peasant"),
+                DialogBox.getUserDialog(input, userImage, "User"),
                 DialogBox.getDukeDialog(response, dukeImage, "Duke")
         );
         userInput.clear();

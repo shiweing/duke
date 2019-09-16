@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Circle?>
+<?scenebuilder-stylesheet ../css/DialogBox.css?>
 
-<fx:root alignment="TOP_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" spacing="5.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="dialogBox" prefWidth="400.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@../css/DialogBox.css" />
+    </stylesheets>
     <children>
-        <Label fx:id="dialog" style="-fx-background-radius: 10; -fx-background-color: #c8dad3;" text="Label" textFill="#63707e" wrapText="true">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <font>
-            <Font size="16.0" />
-         </font>
-         <effect>
-            <DropShadow color="#00000081" offsetY="3.0" />
-         </effect></Label>
-      <VBox fx:id="identity" alignment="TOP_CENTER">
-         <children>
-              <ImageView fx:id="displayPicture" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #93b5b3;" />
-            <Label fx:id="imageLabel" text="Label" textFill="#63707e" />
-         </children>
-      </VBox>
+        <Label fx:id="dialog" text="Label" wrapText="true">
+         <HBox.margin>
+            <Insets top="10.0" />
+         </HBox.margin></Label>
+        <VBox fx:id="identity">
+            <children>
+                <Circle fx:id="displayPicture" radius="30.0" />
+                <Label fx:id="imageLabel" text="Label" />
+            </children>
+        </VBox>
     </children>
-    <padding>
-        <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
-    </padding>
 </fx:root>

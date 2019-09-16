@@ -1,0 +1,23 @@
+AnchorPane, #scrollPane, #dialogContainer {
+    -fx-background-color: white;
+    -fx-font-size: 14px;
+}
+
+#scrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+#userInput {
+    -fx-border-color: #415E82;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-prompt-text-fill: #415E82;
+    -fx-text-fill: #415E82;
+}
+
+#sendButton {
+     -fx-background-color: #415E82;
+     -fx-background-radius: 10;
+     -fx-text-fill: white;
+}
+

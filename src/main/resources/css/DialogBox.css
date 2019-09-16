@@ -1,0 +1,39 @@
+#dialogBox {
+    -fx-alignment: top-right;
+    -fx-padding: 10, 10, 10, 10;
+    -fx-spacing: 15;
+ }
+
+ #dialog {
+    -fx-border-radius: 15;
+    -fx-border-color: #415E82;
+    -fx-text-fill: #415E82;
+    -fx-padding: 5, 5, 5, 5;
+    -fx-font-size: 14;
+    -fx-effect: dropshadow(gaussian, #415E82, 10, 0, 0, 3);
+ }
+
+ #identity {
+    -fx-alignment: top-center;
+ }
+
+ #displayPicture {
+     -fx-stroke: #415E82;
+     -fx-stroke-width: 2;
+     -fx-effect: dropshadow(gaussian, #415E82, 10, 0, 0, 0);
+ }
+
+ #imageLabel {
+    -fx-text-fill: #415E82;
+ }
+
+ // Duke style
+ .duke-style#dialogBox {
+     -fx-alignment: top-left;
+  }
+
+  .duke-style #dialog {
+     -fx-background-radius: 15;
+     -fx-background-color: #415E82;
+     -fx-text-fill: white;
+  }
