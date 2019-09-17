@@ -1,4 +1,5 @@
-import duke.gui.Gui;
+package duke.gui;
+
 import duke.logic.Duke;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
