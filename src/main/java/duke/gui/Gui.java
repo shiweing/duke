@@ -54,6 +54,7 @@ public class Gui extends AnchorPane {
      */
     public void greet() {
         String usage = "Usage:\n"
+                + "bye\n"
                 + "list\n"
                 + "todo [task description]\n"
                 + "deadline [task description] --by [deadline]\n"
@@ -64,7 +65,7 @@ public class Gui extends AnchorPane {
                 + "update [task id] {--desc [task description]} {--by [deadline]} {--at [event time]}  ";
 
         dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog("Hello! I'm duke.util.Duke! What can I do for you?\n" + usage,
+                DialogBox.getDukeDialog("Hello! I'm Duke! What can I do for you?\n" + usage,
                         dukeImage, "Duke")
         );
     }

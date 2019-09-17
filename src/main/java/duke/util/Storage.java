@@ -37,9 +37,11 @@ public class Storage {
                 try {
                     // split into task type and task attributes
                     String[] taskInput = input.split(" ", 2);
+                    if (taskInput.length < 2) {
+                        throw new DukeException("Invalid input: " + input);
+                    }
+
                     String taskType = taskInput[0].strip().toUpperCase();
-
-
                     // split into other task attributes and isDone attribute
                     String[] attributes = taskInput[1].split(" --done ");
 
