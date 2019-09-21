@@ -24,6 +24,6 @@ public class ListCommand extends Command {
             index++;
         }
 
-        return strbui.deleteCharAt(strbui.length() - 2).toString();
+        return strbui.toString();
     }
 }

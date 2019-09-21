@@ -41,6 +41,6 @@ public class FindCommand extends Command {
             strbui.insert(0, "Here are the matching tasks in your list:\n");
         }
 
-        return strbui.deleteCharAt(strbui.length() - 2).toString();
+        return strbui.toString();
     }
 }

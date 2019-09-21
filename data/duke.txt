@@ -2,3 +2,6 @@ TODO read book --done true
 DEADLINE borrow book --by 21/09/2019 1230 --done true
 EVENT CCA meeting --at 22/09/2019 0920 --done true
 DEADLINE Borrow book --by 21/09/2019 1300 --done false
+TODO a --done false
+TODO a --done false
+TODO a --done false

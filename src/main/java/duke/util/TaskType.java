@@ -110,12 +110,22 @@ public enum TaskType {
     /**
      * Returns created task from String input.
      * @param input attributes from user input of format [Desc] [other attributes].
-     * @param isDone indicator for whether the task is done.
      * @return Created task.
      * @throws DukeException If input check fails.
      */
-    public Task stringToTask(String input, boolean isDone) throws DukeException {
-        Task task = commandToTask(input);
+    public Task stringToTask(String input) throws DukeException {
+        String[] attributes = input.split(" --done ");
+
+        if (attributes.length < 2
+                || (!attributes[1].strip().equals("true")
+                && !attributes[1].strip().equals("false"))) {
+            throw new DukeException("Invalid input: " + input);
+        }
+
+        String taskAttr = attributes[0]; // task attributes
+        boolean isDone = Boolean.parseBoolean(attributes[1].strip()); // task isDone boolean
+
+        Task task = commandToTask(taskAttr);
         if (isDone) {
             task.done();
         }

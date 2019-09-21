@@ -42,20 +42,9 @@ public class Storage {
                     }
 
                     String taskType = taskInput[0].strip().toUpperCase();
-                    // split into other task attributes and isDone attribute
-                    String[] attributes = taskInput[1].split(" --done ");
+                    String taskAttr = taskInput[1].strip();
 
-                    if (attributes.length < 2
-                            || (!attributes[1].strip().equals("true")
-                            && !attributes[1].strip().equals("false"))) {
-                        throw new DukeException("Invalid input: " + input);
-                    }
-
-                    String taskAttr = attributes[0]; // task attributes
-                    String isDoneBool = attributes[1].strip(); // task isDone boolean
-
-                    list.add(TaskType.valueOf(taskType)
-                            .stringToTask(taskAttr, Boolean.parseBoolean(isDoneBool)));
+                    list.add(TaskType.valueOf(taskType).stringToTask(taskAttr));
                 } catch (DukeException e) {
                     strBui.append("\n" + e.getMessage());
                 } catch (IllegalArgumentException e) {
@@ -65,7 +54,7 @@ public class Storage {
 
             System.out.println(strBui.toString());
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + file.getAbsolutePath());
+            System.out.println("No tasks to load.");
         }
     }
 
@@ -79,12 +68,18 @@ public class Storage {
         }
 
         try {
-            System.out.println("Saving tasks to " + file.getAbsolutePath() + "...");
-
             if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                file.createNewFile();
+                System.out.println(file.getParentFile());
+                boolean dirCreated = file.getParentFile().mkdir();
+                if (dirCreated) {
+                    file.createNewFile();
+                } else {
+                    System.out.println("Unable to create parent directories.");
+                    return;
+                }
             }
+
+            System.out.println("Saving tasks to " + file.getAbsolutePath() + "...");
 
             FileWriter fw = new FileWriter(file);
             for (Task task : list.getTasks()) {
